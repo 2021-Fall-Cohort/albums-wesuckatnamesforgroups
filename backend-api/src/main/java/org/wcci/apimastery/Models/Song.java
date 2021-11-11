@@ -1,7 +1,6 @@
 package org.wcci.apimastery.Models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.hibernate.mapping.Collection;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

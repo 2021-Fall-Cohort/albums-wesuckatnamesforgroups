@@ -1,2 +1,2 @@
 ###
-GET http://localhost:8008/Albums
+GET http://localhost:8080/Albums/

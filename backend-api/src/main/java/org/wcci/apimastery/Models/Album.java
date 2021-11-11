@@ -1,11 +1,9 @@
 package org.wcci.apimastery.Models;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import java.awt.print.Book;
 import java.util.Arrays;
 import java.util.Collection;
 
@@ -30,6 +28,8 @@ public class Album {
         this.comments = comments;
         this.rating = rating;
         this.songs = Arrays.asList(songs);
+    }
+    public Album(){
     }
 
     public Long getId() {

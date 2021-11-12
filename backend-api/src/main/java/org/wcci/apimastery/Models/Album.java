@@ -4,7 +4,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import java.util.Arrays;
 import java.util.Collection;
 
 @Entity
@@ -21,13 +20,13 @@ public class Album {
     @OneToMany(mappedBy = "album")      // to album/...
     private Collection<Song> songs;
 
-    public Album(String title, String image, String label, String comments, String rating, Song... songs) {
+    public Album(String title, String image, String label, String comments, String rating) {
         this.title = title;
         this.image = image;
         this.label = label;
         this.comments = comments;
         this.rating = rating;
-        this.songs = Arrays.asList(songs);
+
     }
     public Album(){
     }
@@ -58,5 +57,9 @@ public class Album {
 
     public Collection<Song> getSongs() {
         return songs;
+    }
+
+    public void addSong(Song song) {
+        this.songs.add(song);
     }
 }

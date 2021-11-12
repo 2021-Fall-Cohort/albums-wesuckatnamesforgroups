@@ -1,2 +1,15 @@
 ###
 GET http://localhost:8080/Albums/
+###
+PATCH http://localhost:8080/Albums/1/song
+Content-Type: application/json
+
+{
+        
+        "title": "I Will Always Love You",
+        "duration": "2.00",
+        "comments": "I wish it was never played again",
+        "ratings": "1"
+      }
+
+

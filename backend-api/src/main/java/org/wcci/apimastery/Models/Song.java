@@ -33,6 +33,11 @@ public class Song {
     public Song() {
     }
 
+    public void addAlbum(Album album){
+        this.album = album;
+
+    }
+
     public Long getId() {
         return id;
     }

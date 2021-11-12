@@ -6,6 +6,8 @@ import org.wcci.apimastery.Models.Song;
 import org.wcci.apimastery.Repositories.AlbumRepository;
 import org.wcci.apimastery.Repositories.SongRepository;
 
+import java.util.Optional;
+
 @RestController
 @RequestMapping("/Albums")
 public class AlbumController {
@@ -42,7 +44,7 @@ public class AlbumController {
     }
 
 
-    @PatchMapping ("/{id}/song")
+    @PatchMapping ("/{id}/addSong")
     public Iterable<Album> addSongToAlbum(@RequestBody Song newSong, @PathVariable Long id){
         Album currentAlbum = albumRepo.findById(id).get();
         newSong.addAlbum(currentAlbum);
@@ -51,24 +53,28 @@ public class AlbumController {
         return albumRepo.findAll();
     }
 
-    @PatchMapping("/{id}")
-    public Iterable<Album> deleteSongFromAlbum(@PathVariable Long id, @RequestBody Song songToDelete){
-        Album currentAlbum = albumRepo.findById(id).get();
-        Song tempSong = songRepo.findById(songToDelete.getId()).get();
-        currentAlbum.removeSong(tempSong);
-        songRepo.deleteById(tempSong.getId());
-        albumRepo.save(currentAlbum);
-        return albumRepo.findAll();
-    }
+//    @PatchMapping("/{id}")
+//    public Iterable<Album> deleteSongFromAlbum(@PathVariable Long id, @RequestBody Song songToDelete){
+//        Album currentAlbum = albumRepo.findById(id).get();
+//        Song tempSong = songRepo.findById(songToDelete.getId()).get();
+//        currentAlbum.removeSong(tempSong);
+//        songRepo.deleteById(tempSong.getId());
+//        albumRepo.save(currentAlbum);
+//        return albumRepo.findAll();
+//    }
 
 //    @PatchMapping("/{id}")
-//    public Iterable<Album> editSong(@PathVariable Long id, @RequestBody Song songToEdit, @RequestBody String userEdit){
+//    public Iterable<Album> editSong(@PathVariable Long id, @RequestBody Song songToEdit, @RequestBody String newTitle){
 //        Album currentAlbum = albumRepo.findById(id).get();
 //        Song tempSong = songRepo.findById(songToEdit.getId()).get();
+//        tempSong.changeTitle(newTitle);
+//        songRepo.save(tempSong); /// check if this saves a duplicate.
+//        albumRepo.save(currentAlbum);
+//        return albumRepo.findAll();
 //
 //    }
 
-    @PatchMapping("/{id}")
+    @PatchMapping("/{id}/addComment")
     public Iterable<Album> addCommentToAlbum(@RequestBody String newComment, @PathVariable Long id){
         Album currentAlbum = albumRepo.findById(id).get();
         currentAlbum.addComments(newComment);

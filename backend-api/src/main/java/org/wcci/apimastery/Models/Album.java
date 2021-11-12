@@ -3,6 +3,7 @@ package org.wcci.apimastery.Models;
 import javax.persistence.*;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Objects;
 
 @Entity
 public class Album {
@@ -71,8 +72,20 @@ public class Album {
         this.comments.add(comment);
     }
 
-//    public void editSong(String song){
-//        this.songs.
-//
-//    }
+    public void changeTitle(String newTitle) {
+        this.title = newTitle;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Album album = (Album) o;
+        return Objects.equals(getId(), album.getId()) && Objects.equals(getTitle(), album.getTitle()) && Objects.equals(getImage(), album.getImage()) && Objects.equals(getLabel(), album.getLabel()) && Objects.equals(getComments(), album.getComments()) && Objects.equals(getRating(), album.getRating()) && Objects.equals(getSongs(), album.getSongs());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId(), getTitle(), getImage(), getLabel(), getRating());
+    }
 }

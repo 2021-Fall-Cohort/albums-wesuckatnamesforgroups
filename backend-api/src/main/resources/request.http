@@ -6,10 +6,36 @@ Content-Type: application/json
 
 {
         
-        "title": "I Will Always Love You",
-        "duration": "2.00",
-        "comments": "I wish it was never played again",
-        "ratings": "1"
-      }
+  "title": "I Will Always Love You",
+  "duration": "2.00",
+  "comments": [
+    "I wish it was never played again"
+    ],
+  "ratings": "1"
+}
 
+###
+POST http://localhost:8080/Albums/
+Content-Type: application/json
 
+{
+
+  "title": "The rigel axiom",
+  "image": "urlHERE",
+  "label": "music label",
+  "comments": [],
+  "songs": [],
+  "ratings": "4"
+
+}
+
+###
+PATCH http://localhost:8080/Albums/3/
+Content-Type: application/json
+
+{
+  "title": "the tristar",
+  "duration": "04.00",
+  "comments": [],
+  "rating": "4 stars"
+}

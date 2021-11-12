@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Objects;
 
 @Entity
 public class Song {
@@ -60,5 +61,22 @@ public class Song {
 
     public Album getAlbum() {
         return album;
+    }
+
+    public void changeTitle(String newTitle) {
+        this.title = newTitle;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Song song = (Song) o;
+        return Objects.equals(getId(), song.getId()) && Objects.equals(getTitle(), song.getTitle()) && Objects.equals(getDuration(), song.getDuration()) && Objects.equals(getComments(), song.getComments()) && Objects.equals(getRatings(), song.getRatings()) && Objects.equals(getAlbum(), song.getAlbum());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId(), getTitle(), getDuration(), getRatings(), getAlbum());
     }
 }

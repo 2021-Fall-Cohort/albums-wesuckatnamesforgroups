@@ -51,6 +51,31 @@ public class AlbumController {
         return albumRepo.findAll();
     }
 
+    @PatchMapping("/{id}")
+    public Iterable<Album> deleteSongFromAlbum(@PathVariable Long id, @RequestBody Song songToDelete){
+        Album currentAlbum = albumRepo.findById(id).get();
+        Song tempSong = songRepo.findById(songToDelete.getId()).get();
+        currentAlbum.removeSong(tempSong);
+        songRepo.deleteById(tempSong.getId());
+        albumRepo.save(currentAlbum);
+        return albumRepo.findAll();
+    }
+
+//    @PatchMapping("/{id}")
+//    public Iterable<Album> editSong(@PathVariable Long id, @RequestBody Song songToEdit, @RequestBody String userEdit){
+//        Album currentAlbum = albumRepo.findById(id).get();
+//        Song tempSong = songRepo.findById(songToEdit.getId()).get();
+//
+//    }
+
+    @PatchMapping("/{id}")
+    public Iterable<Album> addCommentToAlbum(@RequestBody String newComment, @PathVariable Long id){
+        Album currentAlbum = albumRepo.findById(id).get();
+        currentAlbum.addComments(newComment);
+        albumRepo.save(currentAlbum);
+        return albumRepo.findAll();
+    }
+
 
     @DeleteMapping("/{id}")
     public Iterable<Album> deleteAlbum(@PathVariable Long id){

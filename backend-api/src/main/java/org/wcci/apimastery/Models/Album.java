@@ -1,9 +1,7 @@
 package org.wcci.apimastery.Models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
+import java.util.Arrays;
 import java.util.Collection;
 
 @Entity
@@ -14,17 +12,19 @@ public class Album {
     private String title;
     private String image;
     private String label;
-    private String comments;
+
+    @ElementCollection
+    private Collection<String> comments;
     private String rating;
 
     @OneToMany(mappedBy = "album")      // to album/...
     private Collection<Song> songs;
 
-    public Album(String title, String image, String label, String comments, String rating) {
+    public Album(String title, String image, String label, String rating, String... comments) {
         this.title = title;
         this.image = image;
         this.label = label;
-        this.comments = comments;
+        this.comments = Arrays.asList(comments);
         this.rating = rating;
 
     }
@@ -47,7 +47,7 @@ public class Album {
         return label;
     }
 
-    public String getComments() {
+    public Collection<String> getComments() {
         return comments;
     }
 
@@ -62,4 +62,17 @@ public class Album {
     public void addSong(Song song) {
         this.songs.add(song);
     }
+
+    public void removeSong(Song song){
+        this.songs.remove(song);
+    }
+
+    public void addComments(String comment) {
+        this.comments.add(comment);
+    }
+
+//    public void editSong(String song){
+//        this.songs.
+//
+//    }
 }

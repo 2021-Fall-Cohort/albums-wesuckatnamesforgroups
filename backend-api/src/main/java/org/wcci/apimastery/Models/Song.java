@@ -2,10 +2,9 @@ package org.wcci.apimastery.Models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
+import java.util.Arrays;
+import java.util.Collection;
 
 @Entity
 public class Song {
@@ -15,17 +14,18 @@ public class Song {
     private Long id;
     private String title;
     private String duration;
-    private String comments;
+    @ElementCollection
+    private Collection<String> comments;
     private String ratings;
 
     @ManyToOne
     @JsonIgnore
     private Album album;
 
-    public Song(String title, String duration, String comments, String ratings, Album album) {
+    public Song(String title, String duration,  String ratings, Album album, String...comments) {
         this.title = title;
         this.duration = duration;
-        this.comments = comments;
+        this.comments = Arrays.asList(comments);
         this.ratings = ratings;
         this.album = album;
     }
@@ -50,7 +50,7 @@ public class Song {
         return duration;
     }
 
-    public String getComments() {
+    public Collection<String> getComments() {
         return comments;
     }
 

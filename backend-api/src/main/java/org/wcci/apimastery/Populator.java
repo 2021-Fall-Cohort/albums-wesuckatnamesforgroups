@@ -22,7 +22,7 @@ public class Populator implements CommandLineRunner {
     public void run(String... args) throws Exception {
         Album album1 = new Album("this album", "Url...", "music Label", "no comments", "5 stars");
         albumRepo.save(album1);
-        Song song1 = new Song("And We Go Gentle", "3.00", "Dope Song", "5", album1);
+        Song song1 = new Song("And We Go Gentle", "3.00", "5", album1,"Dope song");
         songRepo.save(song1);
     }
 

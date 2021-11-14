@@ -2,10 +2,10 @@ package org.wcci.apimastery.Models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Objects;
 
 @Entity
 public class Song {
@@ -15,22 +15,30 @@ public class Song {
     private Long id;
     private String title;
     private String duration;
-    private String comments;
+    private String iFrameUrl;
+    @ElementCollection
+    private Collection<String> comments;
     private String ratings;
 
     @ManyToOne
     @JsonIgnore
     private Album album;
 
-    public Song(String title, String duration, String comments, String ratings, Album album) {
+    public Song(String title, String duration, String iFrameUrl, String ratings, Album album, String...comments) {
         this.title = title;
         this.duration = duration;
-        this.comments = comments;
+        this.iFrameUrl = iFrameUrl;
+        this.comments = Arrays.asList(comments);
         this.ratings = ratings;
         this.album = album;
     }
 
     public Song() {
+    }
+
+    public void addAlbum(Album album){
+        this.album = album;
+
     }
 
     public Long getId() {
@@ -45,7 +53,11 @@ public class Song {
         return duration;
     }
 
-    public String getComments() {
+    public String getiFrameUrl() {
+        return iFrameUrl;
+    }
+
+    public Collection<String> getComments() {
         return comments;
     }
 
@@ -55,5 +67,22 @@ public class Song {
 
     public Album getAlbum() {
         return album;
+    }
+
+    public void changeTitle(String newTitle) {
+        this.title = newTitle;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Song song = (Song) o;
+        return Objects.equals(getId(), song.getId()) && Objects.equals(getTitle(), song.getTitle()) && Objects.equals(getDuration(), song.getDuration()) && Objects.equals(getiFrameUrl(), song.getiFrameUrl()) && Objects.equals(getRatings(), song.getRatings()) && Objects.equals(getAlbum(), song.getAlbum());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId(), getTitle(), getDuration(), getiFrameUrl(), getRatings(), getAlbum());
     }
 }

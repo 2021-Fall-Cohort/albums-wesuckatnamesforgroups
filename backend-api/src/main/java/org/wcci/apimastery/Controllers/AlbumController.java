@@ -24,4 +24,9 @@ public class AlbumController {
     public Iterable<Album> retrieveAllAlbums() {
         return albumRepo.findAll();
     }
+
+//    Mapping to adding song, editing song, deleting a song
+//    Mapping to add album, delete an album,
+//    Mapping comments for song and album
+//    Mapping ratings for song and album
 }

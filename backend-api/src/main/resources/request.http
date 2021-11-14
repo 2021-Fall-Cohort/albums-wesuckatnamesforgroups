@@ -30,7 +30,7 @@ Content-Type: application/json
 }
 
 ###
-PATCH http://localhost:8080/Albums/3/
+PATCH http://localhost:8080/Albums/3/addsong
 Content-Type: application/json
 
 {
@@ -38,4 +38,26 @@ Content-Type: application/json
   "duration": "04.00",
   "comments": [],
   "rating": "4 stars"
+}
+
+/// broken ///
+###
+PATCH http://localhost:8080/Albums/3/deletesong 
+Content-Type: application/json
+{
+  "id": 3,
+  "title": "The rigel axiom",
+  "image": "urlHERE",
+  "label": "music label",
+  "comments": [],
+  "rating": null,
+  "songs": [
+  {
+    "id": 4,
+    "title": "the tristar",
+    "duration": "04.00",
+    "comments": [],
+    "ratings": null
+  }
+  ]
 }

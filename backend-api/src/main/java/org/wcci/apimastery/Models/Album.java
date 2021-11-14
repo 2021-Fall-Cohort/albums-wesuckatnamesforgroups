@@ -11,6 +11,7 @@ public class Album {
     @GeneratedValue
     private Long id;
     private String title;
+    private String artist;
     private String image;
     private String label;
 
@@ -21,14 +22,16 @@ public class Album {
     @OneToMany(mappedBy = "album")      // to album/...
     private Collection<Song> songs;
 
-    public Album(String title, String image, String label, String rating, String... comments) {
+    public Album(String title, String artist, String image, String label, String rating, String... comments) {
         this.title = title;
+        this.artist = artist;
         this.image = image;
         this.label = label;
         this.comments = Arrays.asList(comments);
         this.rating = rating;
 
     }
+
     public Album(){
     }
 
@@ -38,6 +41,10 @@ public class Album {
 
     public String getTitle() {
         return title;
+    }
+
+    public String getArtist() {
+        return artist;
     }
 
     public String getImage() {
@@ -76,16 +83,16 @@ public class Album {
         this.title = newTitle;
     }
 
-    @Override
+    @Override   /// changed
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Album album = (Album) o;
-        return Objects.equals(getId(), album.getId()) && Objects.equals(getTitle(), album.getTitle()) && Objects.equals(getImage(), album.getImage()) && Objects.equals(getLabel(), album.getLabel()) && Objects.equals(getComments(), album.getComments()) && Objects.equals(getRating(), album.getRating()) && Objects.equals(getSongs(), album.getSongs());
+        return Objects.equals(getId(), album.getId()) && Objects.equals(getTitle(), album.getTitle()) && Objects.equals(getArtist(), album.getArtist()) && Objects.equals(getImage(), album.getImage()) && Objects.equals(getLabel(), album.getLabel()) && Objects.equals(getRating(), album.getRating());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getTitle(), getImage(), getLabel(), getRating());
+        return Objects.hash(getId(), getTitle(), getArtist(), getImage(), getLabel(), getRating());
     }
 }

@@ -44,7 +44,7 @@ public class AlbumController {
     }
 
 
-    @PatchMapping ("/{id}/addSong")
+    @PatchMapping ("/{id}/addsong")
     public Iterable<Album> addSongToAlbum(@RequestBody Song newSong, @PathVariable Long id){
         Album currentAlbum = albumRepo.findById(id).get();
         newSong.addAlbum(currentAlbum);
@@ -53,28 +53,28 @@ public class AlbumController {
         return albumRepo.findAll();
     }
 
-//    @PatchMapping("/{id}")
-//    public Iterable<Album> deleteSongFromAlbum(@PathVariable Long id, @RequestBody Song songToDelete){
-//        Album currentAlbum = albumRepo.findById(id).get();
-//        Song tempSong = songRepo.findById(songToDelete.getId()).get();
-//        currentAlbum.removeSong(tempSong);
-//        songRepo.deleteById(tempSong.getId());
-//        albumRepo.save(currentAlbum);
-//        return albumRepo.findAll();
-//    }
+    @PatchMapping("/{id}/deletesong")
+    public Iterable<Album> deleteSongFromAlbum(@PathVariable Long id, @RequestBody Song songToDelete){
+        Album currentAlbum = albumRepo.findById(id).get();
+        Song tempSong = songRepo.findById(songToDelete.getId()).get();
+        currentAlbum.removeSong(tempSong);
+        songRepo.deleteById(tempSong.getId());
+        albumRepo.save(currentAlbum);
+        return albumRepo.findAll();
+    }
 
-//    @PatchMapping("/{id}")
-//    public Iterable<Album> editSong(@PathVariable Long id, @RequestBody Song songToEdit, @RequestBody String newTitle){
-//        Album currentAlbum = albumRepo.findById(id).get();
-//        Song tempSong = songRepo.findById(songToEdit.getId()).get();
-//        tempSong.changeTitle(newTitle);
-//        songRepo.save(tempSong); /// check if this saves a duplicate.
-//        albumRepo.save(currentAlbum);
-//        return albumRepo.findAll();
-//
-//    }
+    @PatchMapping("/{id}/editsong")
+    public Iterable<Album> editSong(@PathVariable Long id, @RequestBody Song songToEdit, @RequestBody String newTitle){
+        Album currentAlbum = albumRepo.findById(id).get();
+        Song tempSong = songRepo.findById(songToEdit.getId()).get();
+        tempSong.changeTitle(newTitle);
+        songRepo.save(tempSong); /// check if this saves a duplicate.
+        albumRepo.save(currentAlbum);
+        return albumRepo.findAll();
 
-    @PatchMapping("/{id}/addComment")
+    }
+
+    @PatchMapping("/{id}/addcomment")
     public Iterable<Album> addCommentToAlbum(@RequestBody String newComment, @PathVariable Long id){
         Album currentAlbum = albumRepo.findById(id).get();
         currentAlbum.addComments(newComment);
@@ -83,7 +83,7 @@ public class AlbumController {
     }
 
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/{id}/deletealbum")
     public Iterable<Album> deleteAlbum(@PathVariable Long id){
         albumRepo.deleteById(id);
         return albumRepo.findAll();

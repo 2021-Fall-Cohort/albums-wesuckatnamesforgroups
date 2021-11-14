@@ -15,6 +15,7 @@ public class Song {
     private Long id;
     private String title;
     private String duration;
+    private String iFrameUrl;
     @ElementCollection
     private Collection<String> comments;
     private String ratings;
@@ -23,9 +24,10 @@ public class Song {
     @JsonIgnore
     private Album album;
 
-    public Song(String title, String duration,  String ratings, Album album, String...comments) {
+    public Song(String title, String duration, String iFrameUrl, String ratings, Album album, String...comments) {
         this.title = title;
         this.duration = duration;
+        this.iFrameUrl = iFrameUrl;
         this.comments = Arrays.asList(comments);
         this.ratings = ratings;
         this.album = album;
@@ -51,6 +53,10 @@ public class Song {
         return duration;
     }
 
+    public String getiFrameUrl() {
+        return iFrameUrl;
+    }
+
     public Collection<String> getComments() {
         return comments;
     }
@@ -72,11 +78,11 @@ public class Song {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Song song = (Song) o;
-        return Objects.equals(getId(), song.getId()) && Objects.equals(getTitle(), song.getTitle()) && Objects.equals(getDuration(), song.getDuration()) && Objects.equals(getComments(), song.getComments()) && Objects.equals(getRatings(), song.getRatings()) && Objects.equals(getAlbum(), song.getAlbum());
+        return Objects.equals(getId(), song.getId()) && Objects.equals(getTitle(), song.getTitle()) && Objects.equals(getDuration(), song.getDuration()) && Objects.equals(getiFrameUrl(), song.getiFrameUrl()) && Objects.equals(getRatings(), song.getRatings()) && Objects.equals(getAlbum(), song.getAlbum());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getTitle(), getDuration(), getRatings(), getAlbum());
+        return Objects.hash(getId(), getTitle(), getDuration(), getiFrameUrl(), getRatings(), getAlbum());
     }
 }

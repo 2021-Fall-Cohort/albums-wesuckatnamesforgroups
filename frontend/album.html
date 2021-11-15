@@ -11,25 +11,48 @@
     <!-- edit/delete song, add comment, ratings?, delete album,  -->
     <!-- title, record label, image, songs, comments, ratings -->
     <container class="album-details">
-        <main class="basic-info">
-            <h1 class="album-name"></h1>
-            <h2 class="artist"></h2>
-            <p class="record-label"></p>
-            <img class="album-image-art" src="" alt=""><img>
+        <section class="artist-image">
+            <img class="art-image-art" src="" alt=""><img>
+        </section>
+        <main class="basic-info">            
+                <h1 class="album-name"></h1>
+                <h2 class="ratings"></h2>
+                <h2 class="artist"></h2>
+                <p class="record-label"></p>    
+                <img class="album-image-art" src="" alt=""><img>          
+                <input type="text" placeholder="Edit Album Name">
+                <button class="edit-album-name"></button>
+
+                <button class="back-to-albums"></button>
+            
         </main>
 
         <section class="songs">
+            <h1>Song Lists</h1>
             <p class="song-list"></p>
         </section>
 
+       
+        <section class="add-song">
+            <h1>Add Song</h1>
+            <div class="song-form">
+                <input class="song-title" type="text" placeholder="Song title">
+                <input class="song-duration" type="text" placeholder="duration">
+                <input class="song-songURL" type="text" placeholder="songURL">
+                <input class="song-rating" type="text" placeholder="rating">
+                <input class="song-comment" type="text" placeholder="comments">
+
+                <button class="submit-song" type="submit"></button>
+            </div>  
+        </section>
+
         <section class="comments">
-            <form class="comment-form" action=""></form>
-        </section>
+            <h1>Add Album Comment</h1>
+            <input type="text" placeholder="comments">
+            <button class="submit-comment" type="submit"></button>
 
-        <section class="ratings">
-            <form class="ratings-form" action=""></form>
         </section>
-
+       
     </container>
     
 </body>

@@ -8,18 +8,46 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="container">
-        <header class="main-header">
-            <h1 class="logo">The Cool Kids</h1>
-        </header>
-<!-- Will run for each look in JS to display all infromation  -->
+    <!-- <header class="main-header">
+        <h1 class="logo">The Cool Kids</h1>
+    </header> -->
+
+    <div class="container">       
+
+        <section class="welcome">
+            <h1>Welcome to Electro Psychodelic Coffee House </h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut 
+                labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco 
+                laboris nisi ut aliquip ex ea commodo consequat
+            </p>
+            <img class="welcome-art" src="" alt=""><img>
+        </section>
+
         <main class="album-area">
-            <h1 class="album-name"></h1>
+            <h1>All Albums</h1>
+            <h2 class="album-name"></h2>
             <h2 class="artist-name"></h2>
-            <!-- <p class="album-discription"></p> -->
+            <h3 class="album-rating"></h3>            
             <img class="image-art" src="" alt=""><img>
-        </main>    
+            <button class="delete-album" type="submit"></button>
+        </main>          
+        
+        <section class="add-album">
+            <h1>Add Album</h1>
+            <div class="album-form">
+                <input class="album-title" type="text" placeholder="Album title">
+                <input class="album artist" type="text" placeholder="artist">
+                <input class="album-art" type="text" placeholder="Album Art URL">
+                <input class="record-label" type="text" placeholder="Record Label">
+                <input class="album-comment" type="text" placeholder="comments">
+                <input class="album-rating" type="text" placeholder="rate 1-5 starts">
+
+                <button class="submit-album" type="submit"></button>
+            </div>
+        </section>
     </div>
-    
+    <footer>
+        <p class-="footer-text">Copyright 2021 wesuckatnamesforgroups </p>
+    </footer>
 </body>
 </html>

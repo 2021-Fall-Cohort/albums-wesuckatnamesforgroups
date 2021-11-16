@@ -1,6 +1,6 @@
 
 
-function displayAlbumView(album) {
+function displayAlbumView(mainPage, albums, album) {
     const bodyContainerEl = document.querySelector(".container");  /// first container inside of body tag.
 
     const headerEl = document.createElement("div");
@@ -20,9 +20,9 @@ function displayAlbumView(album) {
     const songListEl = document.createElement("div");
 
     songListEl.innertext = "song list here";
-    album.songs.forEach(song => {
+    // album.songs.forEach(song => {
         
-    });
+    // });
 
     const albumImageEl = document.createElement("img");
     albumImageEl.src = album.image;
@@ -87,7 +87,7 @@ function displayAlbumView(album) {
     const songCommentEl =document.createElement("section");
     songCommentEl.classList.add("comments");
 
-    const inputSongCommentEl =document.createElement("input");
+    const inputAlbumCommentEl = document.createElement("input");
     inputSongCommentEl.classList.add("comment-style");
     inputSongCommentEl.placeholder ="comments";
 

@@ -1,5 +1,4 @@
 
-
 function displaySongView() {
     const songContainer =document.createElement("container");
     songContainer.classList.add("song-details");

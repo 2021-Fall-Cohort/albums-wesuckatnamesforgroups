@@ -1,5 +1,9 @@
-import { displayAlbumView } from "./album.js";
-import { displayAlbumsView } from "./albums.js";
+import {
+  displayAlbumView
+} from "./album.js";
+import {
+  displayAlbumsView
+} from "./albums.js";
 const genericContainer = document.querySelector(".container");
 
 buildPage();
@@ -17,21 +21,16 @@ function buildPage() {
   mainPage.classList.add("mainPage");
   genericContainer.appendChild(mainPage);
 
-      fetch("http://localhost:8080/Albums/")
-        .then((res) => res.json())
-        .then((albums) => {
-        
-          displayAlbumsView(mainPage, albums);
-          mainPage.style.backgroundColor = "red";
-        });
 
-    // fetch("http://localhost:8080/Albums/1")
-    // .then((res) => res.json())
-    // .then((albums) => {
-      
-    //   displayAlbumView(mainPage, albums);
-    //   mainPage.style.backgroundColor = "red";
-    // });
+
+  fetch("http://localhost:8080/Albums/")
+    .then((res) => res.json())
+    .then((albums) => {
+
+      displayAlbumsView(mainPage, albums);
+      mainPage.style.backgroundColor = "red";
+    });
+
 }
 
 
@@ -54,4 +53,6 @@ function buildHeader() {
 
 // Main element function with fetch/ for each loop for albums
 
-export { clearChildren };
+export {
+  clearChildren
+};

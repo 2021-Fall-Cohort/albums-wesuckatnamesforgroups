@@ -41,23 +41,23 @@ Content-Type: application/json
 }
 
 /// broken ///
-###
-PATCH http://localhost:8080/Albums/3/deletesong 
-Content-Type: application/json
-{
-  "id": 3,
-  "title": "The rigel axiom",
-  "image": "urlHERE",
-  "label": "music label",
-  "comments": [],
-  "rating": null,
-  "songs": [
-  {
-    "id": 4,
-    "title": "the tristar",
-    "duration": "04.00",
-    "comments": [],
-    "ratings": null
-  }
-  ]
-}
+# ###
+# PATCH http://localhost:8080/Albums/3/deletesong 
+# Content-Type: application/json
+# {
+#   "id": 3,
+#   "title": "The rigel axiom",
+#   "image": "urlHERE",
+#   "label": "music label",
+#   "comments": [],
+#   "rating": null,
+#   "songs": [
+#   {
+#     "id": 4,
+#     "title": "the tristar",
+#     "duration": "04.00",
+#     "comments": [],
+#     "ratings": null
+#   }
+#   ]
+# }

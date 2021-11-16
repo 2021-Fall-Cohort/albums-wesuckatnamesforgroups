@@ -67,6 +67,7 @@ public class Album {
         return songs;
     }
 
+
     public void addSong(Song song) {
         this.songs.add(song);
     }

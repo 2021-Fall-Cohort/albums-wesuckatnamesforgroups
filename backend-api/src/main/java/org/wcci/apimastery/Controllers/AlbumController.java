@@ -6,8 +6,6 @@ import org.wcci.apimastery.Models.Song;
 import org.wcci.apimastery.Repositories.AlbumRepository;
 import org.wcci.apimastery.Repositories.SongRepository;
 
-import java.util.Optional;
-
 @RestController
 @RequestMapping("/Albums")
 public class AlbumController {
@@ -43,6 +41,12 @@ public class AlbumController {
         }return albumRepo.findAll();
     }
 
+//    @GetMapping("/Songs/{id}")
+//    public Iterable<Album> getIndividualSong(@PathVariable Long id){
+//        Album currentAlbum = albumRepo.findById(id).get();
+//        currentAlbum.getSongs();
+//        return songRepo.findById(id).get();
+//    }
 
     @PatchMapping ("/{id}/addsong")
     public Iterable<Album> addSongToAlbum(@RequestBody Song newSong, @PathVariable Long id){

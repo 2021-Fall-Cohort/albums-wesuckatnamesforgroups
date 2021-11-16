@@ -1,12 +1,12 @@
-// import { displayAlbumView } from "./album";
-// import { clearChildren } from "./app";
+import { displayAlbumView } from "./album.js";
+import { clearChildren } from "./app.js";
 
 function displayAlbumsView(mainPage, albums) {
 
     const mainDiv = document.createElement("div");
     mainDiv.classList.add("container");
     mainPage.appendChild(mainDiv);
-    console.log("Start of displayAlbumsView")
+    console.log("Start of displayAlbumsView");
     console.log(albums);
     
 // Welcome Section

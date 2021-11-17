@@ -71,6 +71,17 @@ header{
     background-color: aquamarine;
 }
 
+.button {
+    background-color:deeppink;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 10px;
+  }
+
 /* Footer */
 footer{
     height: 80px;

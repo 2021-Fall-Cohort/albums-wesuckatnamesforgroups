@@ -30,16 +30,18 @@ function displayAlbumView(mainPage, albums, album) {
 
     const albumTitleEl = document.createElement("h1");
     albumTitleEl.classList.add("album-name");
-    albumTitleEl.innerText = album.title;      
+    albumTitleEl.innerText = album.title;   
+    
+    const artist = document.createElement("img");
+    artist.classList.add("artist-image-art");
+    artist.src = album.artistImage;
 
     const editAlbumEl = document.createElement("input");
     editAlbumEl.placeholder = "Edit Album Name";
 
     const editAlbumButton = document.createElement("button");
     editAlbumButton.innerText = "submit edit";
-
-     // const albumImageEl = document.createElement("img");
-    // albumImageEl.src = album.image;
+   
 
     const backToAlbums =document.createElement("button");
     backToAlbums.classList.add("back-button");
@@ -62,6 +64,7 @@ function displayAlbumView(mainPage, albums, album) {
     basicDiv.appendChild(albumTitleEl);
     basicDiv.appendChild(editAlbumEl);
     basicDiv.appendChild(editAlbumButton);
+    basicDiv.appendChild(artist);
     basicDiv.appendChild(backToAlbums);
     mainEl.appendChild(songListDiv);
     songListDiv.appendChild(songListH1);

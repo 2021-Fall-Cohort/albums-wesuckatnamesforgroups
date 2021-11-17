@@ -5,14 +5,14 @@
 /* All Header */
 /* All Footer */
 /* Buttons   */
-    /* Submit Comments */
-    /* Add to Album */
-    /* Edit */
-    /* Delete */
+/* Submit Comments */
+/* Add to Album */
+/* Edit */
+/* Delete */
 /* Section 1 */
 /* Comments */
 /* Add Song & Album form */
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -20,11 +20,13 @@
     font-size: 100%;
 }
 
-body{
+body {
     font-family: "Poppins", sans-serif;
 }
 
-h1, h2, p {
+h1,
+h2,
+p {
     margin: 1.6 rem 0;
 }
 
@@ -43,10 +45,10 @@ h3 {
     /* font-size: 2.2rem; */
 }
 
-p{
+p {
     font-weight: 400;
     /* font-size: 1.8rem; */
-    
+
 }
 
 img {
@@ -55,43 +57,48 @@ img {
     height: auto;
 }
 
-.container{
-    display:flex;
+.container {
+    display: flex;
     flex-direction: column;
     justify-content: space-between;
     width: 86%;
     align-items: left;
     margin: auto;
-    background-color: blueviolet;    
+    background-color: blueviolet;
 }
 
 /* Header  */
-header{
+header {
     height: 100px;
     background-color: aquamarine;
 }
 
 /* Footer */
-footer{
+footer {
     height: 80px;
     background-color: #222;
-    color:#fff;
+    color: #fff;
     /* Allows you to center the content per the height already set within container */
-    line-height: 80px;   
+    line-height: 80px;
     text-align: center;
-    
+
 }
+
 /* Add Album & Form*/
-.add-album, .add-song{
+.add-album,
+.add-song {
     background-color: burlywood;
 }
-.album-form, .song-form{
+
+.album-form,
+.song-form {
     margin: 5rem 2rem;
     display: flex;
-    flex-direction: column;   
+    flex-direction: column;
 }
+
 /* Comments */
-.comments{
+.comments {
     background-color: darkgreen;
 }
 
@@ -99,23 +106,23 @@ footer{
 
 
 
- /* Home Page/Albums  */
+/* Home Page/Albums  */
 
-    /*Page Welcome */
-.welcome{
+/*Page Welcome */
+.welcome {
     background-color: coral;
 }
 
-    /* Album Collection */
+/* Album Collection */
 
 
 
 
 /* Album Page */
 
-    /* Album Art */
+/* Album Art */
 
-    /* Main Album Infor */
+/* Main Album Infor */
 
 
 
@@ -123,12 +130,23 @@ footer{
 
 /* Song Page*/
 
-    /* Art Section */
-.album-art{
+/* Art Section */
+.album-art {
     background-color: darkorange;
 }
 
-    /* Main Section */
+/* Main Section */
 
 
 
+button {
+    background-color: #4CAF50;
+    /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}

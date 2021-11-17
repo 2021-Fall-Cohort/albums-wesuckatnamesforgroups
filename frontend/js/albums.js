@@ -115,9 +115,14 @@ function displayAlbumsView(mainPage, albums) {
     recordLabelEl.classList.add("record-label");
     recordLabelEl.placeholder = "Record Label";
 
+    const artistImageEl = document.createElement("input");
+    artistImageEl.classList.add("artist-image");
+    artistImageEl.placeholder = "Artist Image Url"    
+
     const albumCommentEl = document.createElement("input");
     albumCommentEl.classList.add("album-comment");
     albumCommentEl.placeholder = "Album Comments";
+    
 
     const albumRatingEl = document.createElement("input");
     albumRatingEl.classList.add("album-rating");
@@ -126,6 +131,35 @@ function displayAlbumsView(mainPage, albums) {
     const albumButtonEl = document.createElement("button");
     albumButtonEl.classList.add("sumbit-album");
     albumButtonEl.placeholder = "submit"; 
+    albumButtonEl.addEventListener("click",()=>{
+        const newAlbumJson = {
+            
+    "title": albumTitleEl.value,
+    "artist": albumArtistEl.value,
+    "artistImage": artistImageEl.value,
+    "image": albumArtEl.value,
+    "label": recordLabelEl.value,
+    "comments": [
+      albumCommentEl.value
+    ],
+    "rating": albumRatingEl.value,
+    "songs": []
+
+    }
+    fetch(`http://localhost:8080/Albums/addAlbum`,{
+            method: 'POST', 
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(newAlbumJson)
+        })
+        .then(res => res.json())
+        .then(album => {
+            clearChildren(mainPage);
+            displayAlbumView(mainPage, album);        
+        })
+        .catch(err => console.error(err));
+    })
      
     mainDiv.appendChild(addAlbumSection); 
     addAlbumSection.appendChild(addAlbumH1);
@@ -133,7 +167,8 @@ function displayAlbumsView(mainPage, albums) {
     albumDivEl.appendChild(albumTitleEl);
     albumDivEl.appendChild(albumArtistEl);
     albumDivEl.appendChild(recordLabelEl);
-    albumDivEl.appendChild(albumRatingEl);        
+    albumDivEl.appendChild(albumRatingEl);
+    albumDivEl.appendChild(artistImageEl);        
     albumDivEl.appendChild(albumArtEl);
     albumDivEl.appendChild(albumCommentEl);
     albumDivEl.appendChild(albumButtonEl);

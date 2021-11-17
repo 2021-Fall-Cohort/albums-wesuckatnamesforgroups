@@ -28,7 +28,7 @@ public class AlbumController {
         return albumRepo.findById(id).get();
     }
 
-    @PostMapping("/")
+    @PostMapping("/addAlbum")
     public Iterable<Album> addAlbum(@RequestBody Album album){
         albumRepo.save(album);
         return albumRepo.findAll();

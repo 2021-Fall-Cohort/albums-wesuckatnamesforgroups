@@ -177,24 +177,50 @@ function displayAlbumView(mainPage, albums, album) {
     })
 
 //Add Comment Section//
-    const songCommentEl =document.createElement("section");
-    songCommentEl.classList.add("comments");
+    const albumCommentEl =document.createElement("section");
+    albumCommentEl.classList.add("comments");
 
     const addAlbumCommentH1=document.createElement("h1");
-    addAlbumCommentH1.innerText= "Add Comment to Album"
+    addAlbumCommentH1.innerText= "Add Comment to Album";
 
     const inputAlbumCommentEl = document.createElement("input");
-    inputSongCommentEl.classList.add("comment-style");
-    inputSongCommentEl.placeholder ="comments";
+    inputAlbumCommentEl.classList.add("comment-style");
+    inputAlbumCommentEl.placeholder ="comments";
+    
+   
 
-    const addSongCommentButtonEl =document.createElement("button");
-    addSongCommentButtonEl.classList.add("submit-comment");
-    addSongCommentButtonEl.placeholder="Submit Comment";   
+    const addAlbumCommentButtonEl =document.createElement("button");
+    addAlbumCommentButtonEl.classList.add("submit-comment");
+    addAlbumCommentButtonEl.placeholder="Submit Comment"; 
+    addAlbumCommentButtonEl.addEventListener("click", ()=>{
+        console.log("value: "+ inputAlbumCommentEl.value);
+        const addAlbumCommentJson = {
+        "comments": inputAlbumCommentEl.value
+        
+
+        }
+        
+        fetch(`http://localhost:8080/Albums/${album.id}/addcomment`,{
+            method: 'PATCH', 
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(addAlbumCommentJson)
+        })
+        .then(res => res.json())
+        .then(album => {
+            clearChildren(mainPage);
+            displayAlbumView(mainPage,  albums, album);        
+        })
+        .catch(err => console.error(err));
+    })
+
+ 
        
-    bodyContainerEl.appendChild(songCommentEl);
-    songCommentEl.appendChild(addAlbumCommentH1);
-    songCommentEl.appendChild(inputSongCommentEl);
-    songCommentEl.appendChild(addSongCommentButtonEl);
+    bodyContainerEl.appendChild(albumCommentEl);
+    albumCommentEl.appendChild(addAlbumCommentH1);
+    albumCommentEl.appendChild(inputAlbumCommentEl);
+    albumCommentEl.appendChild(addAlbumCommentButtonEl);
     
 }
 

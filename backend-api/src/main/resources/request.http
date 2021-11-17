@@ -46,3 +46,34 @@ DELETE http://localhost:8080/Albums/2/deletealbum
 
 ###
 DELETE http://localhost:8080/Albums/1/deletesong/5 
+
+###
+POST http://localhost:8080/Albums/addAlbum
+Content-Type: application/json
+
+{
+          
+  "title": "Miseducation of Lauren Hill",
+  "artist": "Lauren Hill",
+  "artistImage": "I am a string",
+  "image": "string",
+  "label": "Fugees",
+  "comments": [
+    "Dope Album"
+  ],
+  "rating": "5",
+  "songs": [
+    
+  ]
+
+}
+
+###
+PATCH http://localhost:8080/Albums/2/addcomment
+Content-Type: application/json
+
+Dave was here
+  
+
+
+ 

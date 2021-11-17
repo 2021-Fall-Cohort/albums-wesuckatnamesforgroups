@@ -69,8 +69,31 @@ function displayAlbumView(mainPage, albums, album) {
     album.songs.forEach(song => {
         const songTitle = document.createElement("h3");
         songTitle.classList.add("songListTitle");
+
+        const songDeleteButton = document.createElement("button");
+        songDeleteButton.classList.add("deleteButton");
+        songDeleteButton.placeholder = "Delete Song";
+        songDeleteButton.addEventListener("click", () => {
+
+            fetch(`http://localhost:8080/Albums/${album.id}/deletesong/${song.id}`, {
+                method: `DELETE`
+            })
+            .then(res => res.json())
+            .then(album => {
+                clearChildren(mainPage);
+                displayAlbumView(mainPage, albums, album);
+                albums.forEach(currentAlbum => { 
+                    if(currentAlbum.id === album.id){     /// updates the sond list for ALBUMS....
+                        currentAlbum.songs = album.songs;
+                    }
+                });
+            })
+
+        })
+        
         songTitle.innerText = song.title;
         songListDiv.appendChild(songTitle);
+        songListDiv.appendChild(songDeleteButton);
         songTitle.addEventListener("click", ()=>{
         
             clearChildren(mainPage);

@@ -57,14 +57,10 @@ public class AlbumController {
         return albumRepo.findAll();
     }
 
-    @PatchMapping("/{id}/deletesong")
-    public Iterable<Album> deleteSongFromAlbum(@PathVariable Long id, @RequestBody Song songToDelete){
-        Album currentAlbum = albumRepo.findById(id).get();
-        Song tempSong = songRepo.findById(songToDelete.getId()).get();
-        currentAlbum.removeSong(tempSong);
-        songRepo.deleteById(tempSong.getId());
-        albumRepo.save(currentAlbum);
-        return albumRepo.findAll();
+    @DeleteMapping("{id}/deletesong/{songId}")
+    public Album deleteSongFromAlbum(@PathVariable Long id,@PathVariable Long songId){
+        songRepo.deleteById(songId);
+        return albumRepo.findById(id).get();
     }
 
     @PatchMapping("/{id}/editsong")
@@ -88,7 +84,7 @@ public class AlbumController {
 
 
     @DeleteMapping("/{id}/deletealbum")
-    public Iterable<Album> deleteAlbum(@PathVariable Long id){
+    public Iterable<Album> deleteAlbum(@PathVariable Long id) {
         albumRepo.deleteById(id);
         return albumRepo.findAll();
     }

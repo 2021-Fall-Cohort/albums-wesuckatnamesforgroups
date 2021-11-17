@@ -66,6 +66,18 @@ function displayAlbumsView(mainPage, albums) {
         deleteAlbumButton.classList.add("delete-album");
         deleteAlbumButton.placeholder= "Delete Album";
         
+        deleteAlbumButton.addEventListener("click",  () => {
+            fetch(`http://localhost:8080/Albums/${album.id}/deletealbum`, {
+                method: `DELETE`
+            })
+            .then(res => res.json())
+            .then(albums => {                                            //// line in question.
+                clearChildren(mainPage);
+                displayAlbumsView(mainPage, albums);
+            })
+            .catch(err => console.log(err));
+        })
+        
         albumAreaEl.appendChild(albumArtImg);
         albumAreaEl.appendChild(albumNameH2);        
         albumAreaEl.appendChild(artistNameH2);

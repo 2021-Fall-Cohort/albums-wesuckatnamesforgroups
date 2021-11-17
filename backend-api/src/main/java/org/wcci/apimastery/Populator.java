@@ -20,10 +20,10 @@ public class Populator implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-            Album album1 = new Album("Mood Variant", "Hiatus Kaiyote", "Brainfeeder","5 stars", "The shiiiit");
-            Album album2 = new Album("Con Todo El Mundo", "Kruangbin", "Dead Oceans","5 stars", "You're dumb if you don't like this");
-            Album album3 = new Album("The Rigel Axiom", "Dynatron", "Blood Music","5 stars", "Get your mind right");
-            Album album4 = new Album("Escape Velocity", "Dynatron", "Blood Music","5 stars", "Otherwordly");
+            Album album1 = new Album("Mood Variant", "Hiatus Kaiyote", "https://hipersonica.com/wp-content/uploads/2021/03/Hiatus-Kaiyote.jp", "https://www.normanrecords.com/artwork/large/226/186226-hiatus-kaiyote-mood-valiant.jpg","Brainfeeder","5 stars", "The shiiiit");
+            Album album2 = new Album("Con Todo El Mundo", "Kruangbin", "","https://www.fiveriserecords.co.uk/wp-content/uploads/2018/01/a4178091556_10.jpg","Dead Oceans","5 stars", "You're dumb if you don't like this");
+            Album album3 = new Album("The Rigel Axiom", "Dynatron", "https://www.metal-archives.com/images/2/0/8/4/20843_artist.jpg?2730", "https://newnoisemagazine.com/wp-content/uploads/2016/11/Dynatron-The-Rigel-Axiom-EP.jpg", "Blood Music","5 stars", "Get your mind right");
+            Album album4 = new Album("Escape Velocity", "Dynatron", "https://www.metal-archives.com/images/2/0/8/4/20843_artist.jpg?2730rigel ", "https://i.scdn.co/image/ab67616d0000b2730aee69739dc851daff9e83d3", "Blood Music","5 stars", "Otherwordly");
             albumRepo.save(album1);
             albumRepo.save(album2);
             albumRepo.save(album3);

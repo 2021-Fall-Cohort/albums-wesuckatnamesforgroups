@@ -60,7 +60,7 @@ function displayAlbumsView(mainPage, albums) {
 
         const albumArtImg =document.createElement("img");
         albumArtImg.classList.add("image-art");
-        albumArtImg.innerText = album.image;
+        albumArtImg.src = album.image;
         
         const deleteAlbumButton= document.createElement("button");
         deleteAlbumButton.classList.add("delete-album");

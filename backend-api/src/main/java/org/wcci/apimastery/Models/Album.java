@@ -12,6 +12,7 @@ public class Album {
     private Long id;
     private String title;
     private String artist;
+    private String artistImage;
     private String image;
     private String label;
 
@@ -22,9 +23,10 @@ public class Album {
     @OneToMany(mappedBy = "album")      // to album/...
     private Collection<Song> songs;
 
-    public Album(String title, String artist, String image, String label, String rating, String... comments) {
+    public Album(String title, String artist, String artistImage, String image, String label, String rating, String... comments) {
         this.title = title;
         this.artist = artist;
+        this.artistImage = artistImage;
         this.image = image;
         this.label = label;
         this.comments = Arrays.asList(comments);
@@ -45,6 +47,10 @@ public class Album {
 
     public String getArtist() {
         return artist;
+    }
+
+    public String getArtistImage() {
+        return artistImage;
     }
 
     public String getImage() {
@@ -84,16 +90,16 @@ public class Album {
         this.title = newTitle;
     }
 
-    @Override   /// changed
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Album album = (Album) o;
-        return Objects.equals(getId(), album.getId()) && Objects.equals(getTitle(), album.getTitle()) && Objects.equals(getArtist(), album.getArtist()) && Objects.equals(getImage(), album.getImage()) && Objects.equals(getLabel(), album.getLabel()) && Objects.equals(getRating(), album.getRating());
+        return Objects.equals(id, album.id) && Objects.equals(title, album.title) && Objects.equals(artist, album.artist) && Objects.equals(artistImage, album.artistImage) && Objects.equals(image, album.image) && Objects.equals(label, album.label) && Objects.equals(comments, album.comments) && Objects.equals(rating, album.rating) && Objects.equals(songs, album.songs);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getTitle(), getArtist(), getImage(), getLabel(), getRating());
+        return Objects.hash(id, title, artist, artistImage, image, label, rating);
     }
 }

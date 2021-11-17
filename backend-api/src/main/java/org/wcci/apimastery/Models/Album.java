@@ -20,7 +20,7 @@ public class Album {
     private Collection<String> comments;
     private String rating;
 
-    @OneToMany(mappedBy = "album")      // to album/...
+    @OneToMany(mappedBy = "album", cascade = CascadeType.ALL, orphanRemoval = true)
     private Collection<Song> songs;
 
     public Album(String title, String artist, String artistImage, String image, String label, String rating, String... comments) {

@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+/* Import Text */
+/* HTML Elements */
+/* All Header */
+/* All Footer */
+/* Buttons   */
+    /* Submit Comments */
+    /* Add to Album */
+    /* Edit */
+    /* Delete */
+/* Section 1 */
+/* Comments */
+/* Add Song & Album form */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* I think it's clever starting out by using only a percentage of the type. Forces % use when setting type and keeps in responsive */
+    font-size: 62.5%;
+}
+
+body{
+    font-family: "Poppins", sans-serif;
+}
+
+h1, h2, p {
+    margin: 1.6 rem 0;
+}
+
+h1 {
+    font-weight: 800;
+    font-size: 2.6rem;
+}
+
+h2 {
+    font-weight: 800;
+    font-size: 2.4rem;
+}
+
+h3 {
+    font-weight: 600;
+    font-size: 2.2rem;
+}
+
+p{
+    font-weight: 400;
+    font-size: 1.8rem;
+    
+}
+
+img {
+    width: 100%;
+    /* Height auto adjust to size of screen */
+    height: auto;
+}
+
+.container{
+    display:flex;
+    justify-content: space-between;
+    width: 80%;
+    align-items: center;
+    margin: auto;
+    background-color: blueviolet;    
+}
+
+

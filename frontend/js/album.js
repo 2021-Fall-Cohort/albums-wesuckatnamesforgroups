@@ -4,42 +4,33 @@ import { displayAlbumsView} from "./albums.js";
 
 
 function displayAlbumView(mainPage, albums, album) {
-    // const bodyContainerEl = document.querySelector(".container");  /// first container inside of body tag.
+    const bodyContainerEl = document.createElement("container"); 
+    bodyContainerEl.classList.add("container");
 
-    const headerEl = document.createElement("div");
-    headerEl.innerText = "Album View";
+// Art Area
+    const artistArtSection =document.createElement("section");
 
-    const mainEl = document.createElement("main");
+    const albumArtistName = document.createElement("h2");
+    albumArtistName.classList.add("artist-name");
+    albumArtistName.innerText = album.artist;
+
+    const artistImage =document.createElement("img");
+    artistImage.classList.add("art-image-art");
+
+    bodyContainerEl.appendChild(artistArtSection);
+    artistArtSection.appendChild(albumArtistName);
+    artistArtSection.appendChild(artistImage);
+
+// Main Album Area 
+    const mainEl = document.createElement("section");
     mainEl.classList.add("album-area");
 
-    const mainH1El = document.createElement("h1");
-    mainH1El.classList.add("album-name");
-    mainH1El.innerText = album.title;   
+    const basicDiv = document.createElement("div");
+    basicDiv.classList.add("main-elements");
 
-    const mainh2El = document.createElement("h2");
-    mainEl.classList.add("artist-name");
-    mainh2El.innerText = "Artist Name";
-
-    const songListEl = document.createElement("div");
-
-    songListEl.innertext = "song list here";
-    album.songs.forEach(song => {
-        const songListTitle = document.createElement("h3");
-        songListTitle.classList.add("songListTitle");
-        songListTitle.innerText = song.title;
-        mainEl.appendChild(songListTitle);
-        songListTitle.addEventListener("click", ()=>{
-        
-            clearChildren(mainPage);
-            displaySongView(mainPage, song, album, albums);
-            console.log(mainPage);
-
-        });
-        
-    });
-
-    // const albumImageEl = document.createElement("img");
-    // albumImageEl.src = album.image;
+    const albumTitleEl = document.createElement("h1");
+    albumTitleEl.classList.add("album-name");
+    albumTitleEl.innerText = album.title;      
 
     const editAlbumEl = document.createElement("input");
     editAlbumEl.placeholder = "Edit Album Name";
@@ -47,30 +38,48 @@ function displayAlbumView(mainPage, albums, album) {
     const editAlbumButton = document.createElement("button");
     editAlbumButton.innerText = "submit edit";
 
+     // const albumImageEl = document.createElement("img");
+    // albumImageEl.src = album.image;
+
     const backToAlbums =document.createElement("button");
     backToAlbums.classList.add("back-button");
     backToAlbums.placeholder="Back to Albums";
     backToAlbums.addEventListener("click", ()=>{
         clearChildren(mainPage);
         displayAlbumsView(mainPage, albums, album);
-    });
+    });  
 
+    const songListDiv = document.createElement("div");
+    songListDiv.classList.add("song-list");
 
-    // const songPlayerEl = document.createElement("iframe");
-    // songPlayerEl.src = 'https://open.spotify.com/embed/track/1gMLR4lfjbZnHSFylNgn1K?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-pictur';
-    mainEl.appendChild(backToAlbums);
-    // mainEl.appendChild(songPlayerEl);
-    mainEl.appendChild(editAlbumButton);
-    mainEl.appendChild(editAlbumEl);
-    // mainEl.appendChild(albumImageEl);
-    mainEl.appendChild(songListEl);
-    mainEl.appendChild(mainh2El);
-    mainEl.appendChild(mainH1El);
-    mainPage.appendChild(mainEl);
-    mainPage.appendChild(headerEl);
+    const songListH1 = document.createElement("h1");
+    songListH1.innerText ="Song List"  
+   
     
+    mainPage.appendChild(bodyContainerEl);
+    bodyContainerEl.appendChild(mainEl);
+    mainEl.appendChild(basicDiv);
+    basicDiv.appendChild(albumTitleEl);
+    basicDiv.appendChild(editAlbumEl);
+    basicDiv.appendChild(editAlbumButton);
+    basicDiv.appendChild(backToAlbums);
+    mainEl.appendChild(songListDiv);
+    songListDiv.appendChild(songListH1);
 
-    /// for each for songs//
+    album.songs.forEach(song => {
+        const songTitle = document.createElement("h3");
+        songTitle.classList.add("songListTitle");
+        songTitle.innerText = song.title;
+        songListDiv.appendChild(songTitle);
+        songTitle.addEventListener("click", ()=>{
+        
+            clearChildren(mainPage);
+            displaySongView(mainPage, song, album, albums);
+            console.log(mainPage);
+
+        });        
+    });  
+
 
 // Add Song Section
     const songSectionEl= document.createElement("section");
@@ -78,6 +87,9 @@ function displayAlbumView(mainPage, albums, album) {
 
     const songDivEl =document.createElement("div");
     songDivEl.classList.add("song-form")
+
+    const addSongH1 =document.createElement("h1");
+    addSongH1.innerText="Add Song to Album";
     
     const inputSongEl = document.createElement("input");
     inputSongEl.classList.add("song-title");
@@ -102,16 +114,18 @@ function displayAlbumView(mainPage, albums, album) {
 
     const addSongButtonEL =document.createElement("button");
     addSongButtonEL.classList.add("submit-song");
-    addSongButtonEL.placeholder= "Add Song"
-
-    songDivEl.appendChild(addSongButtonEL);
-    songDivEl.appendChild(inputSongCommentEl);
-    songDivEl.appendChild(inputSongURLEl);
-    songDivEl.appendChild(inputSongRating);
-    songDivEl.appendChild(inputSongDurationEl);
-    songDivEl.appendChild(inputSongEl);
+    addSongButtonEL.placeholder= "Add Song"; 
+        
+    bodyContainerEl.appendChild(songSectionEl);
+    songSectionEl.appendChild(addSongH1);
     songSectionEl.appendChild(songDivEl);
-    mainPage.appendChild(songSectionEl);
+    songDivEl.appendChild(inputSongEl);
+    songDivEl.appendChild(inputSongDurationEl);
+    songDivEl.appendChild(inputSongRating);
+    songDivEl.appendChild(inputSongURLEl);
+    songDivEl.appendChild(inputSongCommentEl);
+    songDivEl.appendChild(addSongButtonEL);
+
 
     addSongButtonEL.addEventListener("click", () => {
         const newSongJson = {
@@ -143,18 +157,21 @@ function displayAlbumView(mainPage, albums, album) {
     const songCommentEl =document.createElement("section");
     songCommentEl.classList.add("comments");
 
+    const addAlbumCommentH1=document.createElement("h1");
+    addAlbumCommentH1.innerText= "Add Comment to Album"
+
     const inputAlbumCommentEl = document.createElement("input");
     inputSongCommentEl.classList.add("comment-style");
     inputSongCommentEl.placeholder ="comments";
 
     const addSongCommentButtonEl =document.createElement("button");
     addSongCommentButtonEl.classList.add("submit-comment");
-    addSongCommentButtonEl.placeholder="Submit Comment";
-    
-    songCommentEl.appendChild(addSongCommentButtonEl);
+    addSongCommentButtonEl.placeholder="Submit Comment";   
+       
+    bodyContainerEl.appendChild(songCommentEl);
+    songCommentEl.appendChild(addAlbumCommentH1);
     songCommentEl.appendChild(inputSongCommentEl);
-    mainPage.appendChild(songCommentEl);
-
+    songCommentEl.appendChild(addSongCommentButtonEl);
     
 }
 

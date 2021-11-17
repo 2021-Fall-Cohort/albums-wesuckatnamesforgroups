@@ -5,31 +5,40 @@ function displayAlbumsView(mainPage, albums) {
 
     const mainDiv = document.createElement("div");
     mainDiv.classList.add("container");
+
     mainPage.appendChild(mainDiv);
     console.log("Start of displayAlbumsView");
     console.log(albums);
     
 // Welcome Section
-    const welcomeSectionEL = document.createElement("section"); //***changed from query select to create element ***
-    welcomeSectionEL.classList.add("welcome-section");
+    const welcomeSectionEL = document.createElement("section"); 
+    welcomeSectionEL.classList.add("welcome");
     
     const welcomeH1 =document.createElement("h1");
     welcomeH1.innerText = "WELCOME MESSAGE HERE";
 
+    const welcomeDetails =document.createElement("small");
+    welcomeDetails.innerText ="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidi";
+   
     const welcomeArtEl = document.createElement("img");
-    welcomeArtEl.classList.add("welcome-art");
-
-    welcomeSectionEL.appendChild(welcomeArtEl);
-    welcomeSectionEL.appendChild(welcomeH1);
-    mainDiv.appendChild(welcomeSectionEL);
+    welcomeArtEl.classList.add("welcome-art");   
 
     const allAlbumsH1=document.createElement("h1");
     allAlbumsH1.innerText = "All Albums Page";
+    
+    
+    mainDiv.appendChild(welcomeSectionEL);
+    welcomeSectionEL.appendChild(welcomeH1);
+    welcomeSectionEL.appendChild(welcomeDetails);    
+    welcomeSectionEL.appendChild(welcomeArtEl);
+    welcomeSectionEL.appendChild(allAlbumsH1);
 
+    
+
+ // Main Album Info
     albums.forEach(album => {
-        
-        // Main Area
-        const albumAreaEl = document.createElement("main");
+               
+        const albumAreaEl = document.createElement("section");
         albumAreaEl.classList.add("album-area");
         
         const albumNameH2= document.createElement("h2");
@@ -56,25 +65,25 @@ function displayAlbumsView(mainPage, albums) {
         const deleteAlbumButton= document.createElement("button");
         deleteAlbumButton.classList.add("delete-album");
         deleteAlbumButton.placeholder= "Delete Album";
-
-        albumAreaEl.appendChild(deleteAlbumButton);
+        
         albumAreaEl.appendChild(albumArtImg);
-        albumAreaEl.appendChild(albumRatingH3);
+        albumAreaEl.appendChild(albumNameH2);        
         albumAreaEl.appendChild(artistNameH2);
-        albumAreaEl.appendChild(albumNameH2);
-        albumAreaEl.appendChild(allAlbumsH1);
+        albumAreaEl.appendChild(albumRatingH3);        
+        albumAreaEl.appendChild(deleteAlbumButton);
         mainDiv.appendChild(albumAreaEl);
 
     });
     
-
+    
 
 // Add Album
     const addAlbumSection = document.createElement("section");
-    addAlbumSection.classList.add("add-album-section")
+    addAlbumSection.classList.add("add-album")
 
     const addAlbumH1 =document.createElement("h1");
-    
+    addAlbumH1.innerText ="Add Album to Collection";
+
     const albumDivEl = document.createElement("div");
     albumDivEl.classList.add("album-form");
 
@@ -87,7 +96,7 @@ function displayAlbumsView(mainPage, albums) {
     albumArtistEl.placeholder = "artist";
 
     const albumArtEl = document.createElement("input");
-    albumArtEl.classList.add("album-art");
+    albumArtEl.classList.add("albumURL");
     albumArtEl.placeholder = "Album Art URL";
 
     const recordLabelEl = document.createElement("input");
@@ -104,20 +113,18 @@ function displayAlbumsView(mainPage, albums) {
 
     const albumButtonEl = document.createElement("button");
     albumButtonEl.classList.add("sumbit-album");
-    albumButtonEl.placeholder = "submit";
-
-    
-    albumDivEl.appendChild(albumButtonEl);
-    albumDivEl.appendChild(albumRatingEl);
-    albumDivEl.appendChild(albumCommentEl);
-    albumDivEl.appendChild(recordLabelEl);
-    albumDivEl.appendChild(albumArtEl);
-    albumDivEl.appendChild(albumArtistEl);
-    albumDivEl.appendChild(albumTitleEl);
-    addAlbumSection.appendChild(albumDivEl);
-    addAlbumSection.appendChild(addAlbumH1);
+    albumButtonEl.placeholder = "submit"; 
+     
     mainDiv.appendChild(addAlbumSection); 
-        
+    addAlbumSection.appendChild(addAlbumH1);
+    addAlbumSection.appendChild(albumDivEl);
+    albumDivEl.appendChild(albumTitleEl);
+    albumDivEl.appendChild(albumArtistEl);
+    albumDivEl.appendChild(recordLabelEl);
+    albumDivEl.appendChild(albumRatingEl);        
+    albumDivEl.appendChild(albumArtEl);
+    albumDivEl.appendChild(albumCommentEl);
+    albumDivEl.appendChild(albumButtonEl);
 }
 
 export {

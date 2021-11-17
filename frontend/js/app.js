@@ -6,8 +6,10 @@ import {
 } from "./albums.js";
 const genericContainer = document.querySelector(".container");
 
-buildPage();
+
 buildHeader();
+buildPage();
+buildFooter();
 
 
 function clearChildren(element) {
@@ -16,8 +18,21 @@ function clearChildren(element) {
   }
 }
 
+
+function buildHeader() {
+  const headerEl = document.createElement("header");
+  headerEl.classList.add("main-header");
+
+  const logoText = document.createElement("h1");
+  logoText.classList.add("logo");
+  logoText.innerText = "Logo Text";
+
+  headerEl.appendChild(logoText);
+  genericContainer.appendChild(headerEl);
+}
+
 function buildPage() {
-  const mainPage = document.createElement("div");
+  const mainPage = document.createElement("main");
   mainPage.classList.add("mainPage");
   genericContainer.appendChild(mainPage);
 
@@ -33,23 +48,16 @@ function buildPage() {
 
 }
 
+function buildFooter(){
+    const footerEl = document.createElement("footer");
+    footerEl.classList.add("footer-text");
+    const footerTextEl = document.createElement("small");
+    footerTextEl.classList.add("footer-text")
+    footerTextEl.innerHTML = "Copyright &copy  2021 WeSuckAtNamesForGroups";
 
-
-function buildHeader() {
-  const headerEl = document.createElement("header");
-  headerEl.classList.add("main-header");
-
-  const headerH1El = document.createElement("hy1");
-  headerH1El.classList.add("main-header");
-  headerH1El.innerText = "Welcome to Electro Psychodelic Coffee House";
+    footerEl.appendChild(footerTextEl);
+    genericContainer.appendChild(footerEl);
 }
-// function buildFooter(){
-//     const footerEl = document.createElement("footer");
-//     footerEl.classList.add("footer-text");
-//     const footerTextEl = document.createElelement("p");
-//     footerTextEl.classList.add("footer-text")
-//     footerTextEl.innerText = "Copyright &copy  2021 WeSuckAtNamesForGroups";
-// }
 
 // Main element function with fetch/ for each loop for albums
 

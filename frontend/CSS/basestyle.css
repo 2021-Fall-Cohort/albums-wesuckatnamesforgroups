@@ -17,7 +17,7 @@
     padding: 0;
     box-sizing: border-box;
     /* I think it's clever starting out by using only a percentage of the type. Forces % use when setting type and keeps in responsive */
-    font-size: 62.5%;
+    font-size: 100%;
 }
 
 body{
@@ -30,22 +30,22 @@ h1, h2, p {
 
 h1 {
     font-weight: 800;
-    font-size: 2.6rem;
+    /* font-size: 2.6rem; */
 }
 
 h2 {
     font-weight: 800;
-    font-size: 2.4rem;
+    /* font-size: 2.4rem; */
 }
 
 h3 {
     font-weight: 600;
-    font-size: 2.2rem;
+    /* font-size: 2.2rem; */
 }
 
 p{
     font-weight: 400;
-    font-size: 1.8rem;
+    /* font-size: 1.8rem; */
     
 }
 
@@ -57,11 +57,78 @@ img {
 
 .container{
     display:flex;
+    flex-direction: column;
     justify-content: space-between;
-    width: 80%;
-    align-items: center;
+    width: 86%;
+    align-items: left;
     margin: auto;
     background-color: blueviolet;    
 }
+
+/* Header  */
+header{
+    height: 100px;
+    background-color: aquamarine;
+}
+
+/* Footer */
+footer{
+    height: 80px;
+    background-color: #222;
+    color:#fff;
+    /* Allows you to center the content per the height already set within container */
+    line-height: 80px;   
+    text-align: center;
+    
+}
+/* Add Album & Form*/
+.add-album, .add-song{
+    background-color: burlywood;
+}
+.album-form, .song-form{
+    margin: 5rem 2rem;
+    display: flex;
+    flex-direction: column;   
+}
+/* Comments */
+.comments{
+    background-color: darkgreen;
+}
+
+
+
+
+
+ /* Home Page/Albums  */
+
+    /*Page Welcome */
+.welcome{
+    background-color: coral;
+}
+
+    /* Album Collection */
+
+
+
+
+/* Album Page */
+
+    /* Album Art */
+
+    /* Main Album Infor */
+
+
+
+
+
+/* Song Page*/
+
+    /* Art Section */
+.album-art{
+    background-color: darkorange;
+}
+
+    /* Main Section */
+
 
 

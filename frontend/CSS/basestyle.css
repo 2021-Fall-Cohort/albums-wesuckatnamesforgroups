@@ -161,3 +161,8 @@ button {
     display: inline-block;
     font-size: 16px;
 }
+
+.current-comment{
+    display: flex;
+    flex-direction: column;
+}

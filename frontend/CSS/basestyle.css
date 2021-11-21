@@ -22,6 +22,7 @@
 
 body {
     font-family: "Poppins", sans-serif;
+    
 }
 
 h1,
@@ -51,20 +52,29 @@ p {
 
 }
 
-img {
+/* img {
     width: 100%;
-    /* Height auto adjust to size of screen */
+    Height auto adjust to size of screen
     height: auto;
-}
+} */
 
-.container {
-    display: flex;
+.mainPage{
+    background-color: red;
+
+}
+.interior-container {
+    display:flex;  
     flex-direction: column;
     justify-content: space-between;
-    width: 86%;
-    align-items: left;
-    margin: auto;
+    width: 98%;
+    /* align-items: left;
+    margin: auto; */
     background-color: blueviolet;
+    
+}
+
+.section-style{
+
 }
 
 /* Header  */
@@ -72,17 +82,6 @@ header {
     height: 100px;
     background-color: aquamarine;
 }
-
-.button {
-    background-color:deeppink;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 10px;
-  }
 
 /* Footer */
 footer {
@@ -94,8 +93,30 @@ footer {
     text-align: center;
 
 }
+/* -----------------------------------------Button------------------------------------- */
 
-/* Add Album & Form*/
+button {
+    background-color:deeppink;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+}
+
+/*-----------------------------------------Comments-----------------------------------------*/
+.comments {
+    background-color: darkgreen;
+    
+}
+.current-comment{
+    display: flex;
+    flex-direction: column;
+}
+
+/*--------------------------------------- Add Album & Song Form----------------------------------*/
 .add-album,
 .add-song {
     background-color: burlywood;
@@ -108,28 +129,40 @@ footer {
     flex-direction: column;
 }
 
-/* Comments */
-.comments {
-    background-color: darkgreen;
-}
 
 
 
+/*------------------------------------- Home Page/Albums------------------------------------- */
 
-
-/* Home Page/Albums  */
-
-/*Page Welcome */
+    /*Page Welcome */
 .welcome {
     background-color: coral;
+    width: 100%;
 }
 
-/* Album Collection */
+    /* Album Collection */
+.album-area{
+    display: flex;
+    flex-direction: row;
+    
+}  
+
+
+/* .album-card{
+    display: flex;
+    flex-flow: column;
+    border: 1px solid black;
+    border-radius: 1rem;
+
+}   */
+.image-art{
+    width: 300px; 
+    
+}
 
 
 
-
-/* Album Page */
+/* ---------------------------------------Album Page------------------------------------------*/
 
 /* Album Art */
 
@@ -139,30 +172,12 @@ footer {
 
 
 
-/* Song Page*/
+/*-----------------------------------------Song Page-------------------------------------------*/
 
-/* Art Section */
+    /* Art Section */
 .album-art {
     background-color: darkorange;
 }
 
-/* Main Section */
+    /* Main Section */
 
-
-
-button {
-    background-color: #4CAF50;
-    /* Green */
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-}
-
-.current-comment{
-    display: flex;
-    flex-direction: column;
-}

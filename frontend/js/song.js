@@ -4,7 +4,7 @@ import { clearChildren } from "./app.js";
 function displaySongView(mainPage, song, album, albums) {
     console.log(song);
     const songContainer =document.createElement("container");
-    songContainer.classList.add("container");
+    songContainer.classList.add("interior-container");
     
 
 
@@ -48,14 +48,14 @@ function displaySongView(mainPage, song, album, albums) {
 
     const editSongButton =document.createElement("button");
     editSongButton.classList.add("edit-song-name");
-    editSongButton.placeholder="submit";
+    editSongButton.innerText="submit";
 
     const songPlayerDiv = document.createElement("div");
     songPlayerDiv.classList.add("songplater")
 
     const backToAlbum =document.createElement("button");
     backToAlbum.classList.add("back-button");
-    backToAlbum.placeholder="Back to Album";
+    backToAlbum.innerText="Back to Album";
     backToAlbum.addEventListener("click", ()=>{
         clearChildren(mainPage);
         displayAlbumView(mainPage, albums, album);
@@ -90,7 +90,7 @@ function displaySongView(mainPage, song, album, albums) {
 
     const songCommentButton =document.createElement("button");
     songCommentButton.classList.add("submit-comment");
-    songCommentButton.placeholder= "Add Comment To Song";   
+    songCommentButton.innerText= "Add Comment To Song";   
         
     songContainer.appendChild(songCommentEl);
     songCommentEl.appendChild(songCommentH1);

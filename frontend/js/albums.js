@@ -4,7 +4,7 @@ import { clearChildren } from "./app.js";
 function displayAlbumsView(mainPage, albums) {
 
     const mainDiv = document.createElement("div");
-    mainDiv.classList.add("container");
+    mainDiv.classList.add("interior-container");
 
     mainPage.appendChild(mainDiv);
     console.log("Start of displayAlbumsView");
@@ -12,7 +12,7 @@ function displayAlbumsView(mainPage, albums) {
     
 // Welcome Section
     const welcomeSectionEL = document.createElement("section"); 
-    welcomeSectionEL.classList.add("welcome");
+    welcomeSectionEL.classList.add("welcome", "section-style");
     
     const welcomeH1 =document.createElement("h1");
     welcomeH1.innerText = "WELCOME MESSAGE HERE";
@@ -33,39 +33,41 @@ function displayAlbumsView(mainPage, albums) {
     welcomeSectionEL.appendChild(welcomeArtEl);
     welcomeSectionEL.appendChild(allAlbumsH1);
 
-    
 
  // Main Album Info
+    const albumAreaEl = document.createElement("section");
+    albumAreaEl.classList.add("album-area", "section-style");          
+   
     albums.forEach(album => {
-               
-        const albumAreaEl = document.createElement("section");
-        albumAreaEl.classList.add("album-area");
         
+        const albumCard=document.createElement("article");
+        albumCard.classList.add("album-card");
+
         const albumNameH2= document.createElement("h2");
         albumNameH2.classList.add("album-name");
         albumNameH2.innerText = album.title;
-        albumNameH2.addEventListener("click", () => {
-            clearChildren(mainPage);
-            displayAlbumView(mainPage, albums, album);
-        })
+     
 
         const artistNameH2=document.createElement("h2");
         artistNameH2.classList.add("artist-name");
         artistNameH2.innerText = album.artist;
 
-
         const albumRatingH3=document.createElement("h3");
         albumRatingH3.classList.add("album-rating");
-        albumRatingH3.innertext = album.rating;
+        albumRatingH3.innerText = "Album Rating: "+ album.rating;
 
         const albumArtImg =document.createElement("img");
         albumArtImg.classList.add("image-art");
         albumArtImg.src = album.image;
+        albumArtImg.addEventListener("click", () => {
+            clearChildren(mainPage);
+            displayAlbumView(mainPage, albums, album);
+        })
+
         
         const deleteAlbumButton= document.createElement("button");
         deleteAlbumButton.classList.add("delete-album");
-        deleteAlbumButton.placeholder= "Delete Album";
-        
+        deleteAlbumButton.innerText="Delete Album";        
         deleteAlbumButton.addEventListener("click",  () => {
             fetch(`http://localhost:8080/Albums/${album.id}/deletealbum`, {
                 method: `DELETE`
@@ -78,11 +80,12 @@ function displayAlbumsView(mainPage, albums) {
             .catch(err => console.log(err));
         })
         
-        albumAreaEl.appendChild(albumArtImg);
-        albumAreaEl.appendChild(albumNameH2);        
-        albumAreaEl.appendChild(artistNameH2);
-        albumAreaEl.appendChild(albumRatingH3);        
-        albumAreaEl.appendChild(deleteAlbumButton);
+        albumCard.appendChild(albumArtImg);
+        albumCard.appendChild(albumNameH2);        
+        albumCard.appendChild(artistNameH2);
+        albumCard.appendChild(albumRatingH3);        
+        albumCard.appendChild(deleteAlbumButton);
+        albumAreaEl.appendChild(albumCard);
         mainDiv.appendChild(albumAreaEl);
 
     });
@@ -91,7 +94,7 @@ function displayAlbumsView(mainPage, albums) {
 
 // Add Album
     const addAlbumSection = document.createElement("section");
-    addAlbumSection.classList.add("add-album")
+    addAlbumSection.classList.add("add-album", "section-style")
 
     const addAlbumH1 =document.createElement("h1");
     addAlbumH1.innerText ="Add Album to Collection";
@@ -130,7 +133,7 @@ function displayAlbumsView(mainPage, albums) {
 
     const albumButtonEl = document.createElement("button");
     albumButtonEl.classList.add("sumbit-album");
-    albumButtonEl.placeholder = "submit"; 
+    albumButtonEl.innerText = "Submit Comment"; 
     albumButtonEl.addEventListener("click",()=>{
         const newAlbumJson = {
             

@@ -5,7 +5,7 @@ import { displayAlbumsView } from "./albums.js";
 
 function displayAlbumView(mainPage, albums, album) {
     const bodyContainerEl = document.createElement("container");
-    bodyContainerEl.classList.add("container");
+    bodyContainerEl.classList.add("interior-container");
 
     // Art Area
     const artistArtSection = document.createElement("section");
@@ -23,7 +23,7 @@ function displayAlbumView(mainPage, albums, album) {
 
     // Main Album Area 
     const mainEl = document.createElement("section");
-    mainEl.classList.add("album-area");
+    mainEl.classList.add("RENAME");
 
     const basicDiv = document.createElement("div");
     basicDiv.classList.add("main-elements");
@@ -40,7 +40,7 @@ function displayAlbumView(mainPage, albums, album) {
     editAlbumEl.placeholder = "Edit Album Name";
 
     const editAlbumButton = document.createElement("button");
-    editAlbumButton.innerText = "submit edit";
+    editAlbumButton.innerText = "Submit Edit";
     editAlbumButton.addEventListener("click", () => {
 
         fetch(`http://localhost:8080/Albums/${album.id}/editname`, {
@@ -68,7 +68,7 @@ function displayAlbumView(mainPage, albums, album) {
 
         const backToAlbums = document.createElement("button");
         backToAlbums.classList.add("back-button");
-        backToAlbums.placeholder = "Back to Albums";
+        backToAlbums.innerText = "Back to Albums";
         backToAlbums.addEventListener("click", () => {
             clearChildren(mainPage);
             displayAlbumsView(mainPage, albums, album);
@@ -98,7 +98,7 @@ function displayAlbumView(mainPage, albums, album) {
 
             const songDeleteButton = document.createElement("button");
             songDeleteButton.classList.add("deleteButton");
-            songDeleteButton.placeholder = "Delete Song";
+            songDeleteButton.innerText = "Delete Song";
             songDeleteButton.addEventListener("click", () => {
 
                 fetch(`http://localhost:8080/Albums/${album.id}/deletesong/${song.id}`, {
@@ -130,7 +130,8 @@ function displayAlbumView(mainPage, albums, album) {
         });
 
 
-        // Add Song Section
+// Add Song Section
+
         const songSectionEl = document.createElement("section");
         songSectionEl.classList.add("add-song");
 
@@ -163,7 +164,7 @@ function displayAlbumView(mainPage, albums, album) {
 
         const addSongButtonEL = document.createElement("button");
         addSongButtonEL.classList.add("submit-song");
-        addSongButtonEL.placeholder = "Add Song";
+        addSongButtonEL.innerText = "Add Song";
 
         bodyContainerEl.appendChild(songSectionEl);
         songSectionEl.appendChild(addSongH1);
@@ -216,7 +217,7 @@ function displayAlbumView(mainPage, albums, album) {
         const addAlbumCommentButtonEl = document.createElement("button");
         addAlbumCommentButtonEl.classList.add("submit-comment");
 
-        addAlbumCommentButtonEl.placeholder = "Submit Comment";
+        addAlbumCommentButtonEl.innerText = "Submit Comment";
         addAlbumCommentButtonEl.addEventListener("click", () => {
 
             fetch(`http://localhost:8080/Albums/${album.id}/addcomment`, {

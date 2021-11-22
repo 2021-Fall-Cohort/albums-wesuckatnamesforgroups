@@ -13,6 +13,9 @@ function displayAlbumsView(mainPage, albums) {
 // Welcome Section
     const welcomeSectionEL = document.createElement("section"); 
     welcomeSectionEL.classList.add("welcome", "section-style");
+
+    const textStyling=document.createElement("div");
+    textStyling.classList.add("text-styling");
     
     const welcomeH1 =document.createElement("h1");
     welcomeH1.innerText = "WELCOME MESSAGE HERE";
@@ -22,23 +25,29 @@ function displayAlbumsView(mainPage, albums) {
    
     // const welcomeArtEl = document.createElement("img");
     // welcomeArtEl.classList.add("welcome-art"); 
-    // welcomeArtEl.src = "./images/crate-digging.jpg" 
-
-    const allAlbumsH1=document.createElement("h1");
-    allAlbumsH1.innerText = "All Albums Page";
-    
+    // welcomeArtEl.src = "./images/crate-digging.jpg"     
     
     mainDiv.appendChild(welcomeSectionEL);
     // welcomeSectionEL.appendChild(welcomeArtEl);
-    welcomeSectionEL.appendChild(welcomeH1);
-    welcomeSectionEL.appendChild(welcomeDetails);
-    welcomeSectionEL.appendChild(allAlbumsH1);
+    welcomeSectionEL.appendChild(textStyling);
+    textStyling.appendChild(welcomeH1);
+    textStyling.appendChild(welcomeDetails);
+    
+// Addendum for "All Albums H1"
+    const addendum =document.createElement("section");
+    addendum.classList.add("addendum", "section-style");
 
+    const allAlbumsH1=document.createElement("h1");
+    allAlbumsH1.innerText = "Album Collection";
+   
+    addendum.appendChild(allAlbumsH1);
+    mainDiv.appendChild(addendum);
 
  // Main Album Info
     const albumAreaEl = document.createElement("section");
-    albumAreaEl.classList.add("album-area", "section-style");          
-   
+    albumAreaEl.classList.add("album-area", "section-style");  
+    
+
     albums.forEach(album => {
         
         const albumCard=document.createElement("article");
@@ -81,13 +90,15 @@ function displayAlbumsView(mainPage, albums) {
             .catch(err => console.log(err));
         })
         
+        
         albumCard.appendChild(albumArtImg);
         albumCard.appendChild(albumNameH2);        
         albumCard.appendChild(artistNameH2);
         albumCard.appendChild(albumRatingH3);        
         albumCard.appendChild(deleteAlbumButton);
-        albumAreaEl.appendChild(albumCard);
+        albumAreaEl.appendChild(albumCard);        
         mainDiv.appendChild(albumAreaEl);
+        
 
     });
     

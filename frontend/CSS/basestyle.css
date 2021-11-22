@@ -134,20 +134,12 @@ button {
 
 /*------------------------------------- Home Page/Albums------------------------------------- */
 
-    /*Page Welcome */
-/* .welcome {
-    width: 100vw;
-    background: linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.6)), url(/images/crate-digging.jpg); 
-    background-image: url(/images/crate-digging.jpg);
-    background-size: 100vw;
-    background-height: 100vh;
-    background-color: coral;
-    width: 100%;
-} */
+/*Page Welcome */
+
 
 .welcome{
     padding: 20em;
-    outline: 5px solid black;
+    border: 6.75px solid black;
     background-size: cover;
     background-position: center;
     background-image:linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.6)), url(/images/crate-digging.jpg);
@@ -160,24 +152,36 @@ button {
     background: linear-gradient(rgba(0,0,0,1), rgba(163, 80, 80, 0.6)); 
 } */
 
-    /* Album Collection */
+.text-styling{
+    background-color: rgb(222, 184, 135, 0.45);
+    
+}
+
+.text-styling h1{
+    font-size: xxx-large;
+    padding-bottom: .5em;
+}
+
+.text-styling small{
+    
+    font-size: larger;
+}
+/* Album Collection */
+.addendum h1{
+    font-size: xx-large;
+    padding-left: 2.5rem;
+    padding-top: 3rem;
+}
 .album-area{
     margin-top: 2rem;
     margin-bottom: 3rem;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(325px, 425px));
-    gap: 1.25rem;
-    
-    
-    
+    gap: 1.25rem;     
 }  
-
-
 .album-card{    
     padding-left: 2rem;
-    padding-top: 1.5rem;
-  
-
+    padding-top: 1.5rem;  
 }  
 .image-art{
     /* width: 300px;  */

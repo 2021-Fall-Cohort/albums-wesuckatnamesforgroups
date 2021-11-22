@@ -24,10 +24,18 @@ public class Populator implements CommandLineRunner {
             Album album2 = new Album("Con Todo El Mundo", "Kruangbin", "https://buzzbands.la/wp-content/gallery/khruangbin-wiltern-sw/Khruangbin-22.jpg","https://www.fiveriserecords.co.uk/wp-content/uploads/2018/01/a4178091556_10.jpg","Dead Oceans","5 stars", "You're dumb if you don't like this");
             Album album3 = new Album("The Rigel Axiom", "Dynatron", "https://www.metal-archives.com/images/2/0/8/4/20843_artist.jpg?2730", "https://newnoisemagazine.com/wp-content/uploads/2016/11/Dynatron-The-Rigel-Axiom-EP.jpg", "Blood Music","5 stars", "Get your mind right");
             Album album4 = new Album("Escape Velocity", "Dynatron", "https://www.metal-archives.com/images/2/0/8/4/20843_artist.jpg?2730rigel ", "https://i.scdn.co/image/ab67616d0000b2730aee69739dc851daff9e83d3", "Blood Music","5 stars", "Otherwordly");
+            Album album5 = new Album("Choose Your Weapon", "Hiatus Kaiyote", "https://hipersonica.com/wp-content/uploads/2021/03/Hiatus-Kaiyote.jpg", "https://amusicblogyea.com/wp-content/uploads/2015/06/Hiatus-Kaiyote.jpg","Brainfeeder","5 stars", "Dopeness");
+            Album album6 = new Album("Tawk Tamahawk", "Hiatus Kaiyote", "https://hipersonica.com/wp-content/uploads/2021/03/Hiatus-Kaiyote.jpg", "https://aentcdn.azureedge.net/graphics/items/sdimages/a/500/2/0/5/3/2343502.jpg","Brainfeeder","5 stars", "SIIIICK");
+            Album album7 = new Album("Mordechai", "Kruangbin", "https://buzzbands.la/wp-content/gallery/khruangbin-wiltern-sw/Khruangbin-22.jpg","https://img.tmstor.es/tmmusic/64955-e8546e46b654b1f9c78c5c30030f40a5.jpg","Dead Oceans","5 stars", "You're dumb if you don't like this");
+            Album album8 = new Album("The Universe Smiles Upon You", "Kruangbin", "https://buzzbands.la/wp-content/gallery/khruangbin-wiltern-sw/Khruangbin-22.jpg","https://static.stereogum.com/uploads/2015/11/a1774367281_10.jpg","Dead Oceans","5 stars", "You're dumb if you don't like this");
             albumRepo.save(album1);
             albumRepo.save(album2);
             albumRepo.save(album3);
             albumRepo.save(album4);
+            albumRepo.save(album5);
+            albumRepo.save(album6);
+            albumRepo.save(album7);
+            albumRepo.save(album8);
 
             Song song1 = new Song("Flight of the Tiger Lilly ", "0.35", "", "5", album1,"Dope song");
             Song song2 = new Song("Sip into Something Soft", "01.43", "", "3", album1, "good song");

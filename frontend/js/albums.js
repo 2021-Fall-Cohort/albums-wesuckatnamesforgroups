@@ -114,6 +114,9 @@ function displayAlbumsView(mainPage, albums) {
     const albumDivEl = document.createElement("div");
     albumDivEl.classList.add("album-form");
 
+    const addAlbumImg =document.createElement("div");
+    addAlbumImg.classList.add("add-album-img");
+
     const albumTitleEl = document.createElement("input");
     albumTitleEl.classList.add("album-title");
     albumTitleEl.placeholder = "album title";
@@ -178,6 +181,7 @@ function displayAlbumsView(mainPage, albums) {
      
     mainDiv.appendChild(addAlbumSection); 
     addAlbumSection.appendChild(addAlbumH1);
+    addAlbumSection.appendChild(addAlbumImg);
     addAlbumSection.appendChild(albumDivEl);
     albumDivEl.appendChild(albumTitleEl);
     albumDivEl.appendChild(albumArtistEl);

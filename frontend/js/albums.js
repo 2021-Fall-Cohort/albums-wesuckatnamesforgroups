@@ -18,19 +18,20 @@ function displayAlbumsView(mainPage, albums) {
     welcomeH1.innerText = "WELCOME MESSAGE HERE";
 
     const welcomeDetails =document.createElement("small");
-    welcomeDetails.innerText ="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidi";
+    welcomeDetails.innerText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim  veniam, quis nostrud";
    
-    const welcomeArtEl = document.createElement("img");
-    welcomeArtEl.classList.add("welcome-art");   
+    // const welcomeArtEl = document.createElement("img");
+    // welcomeArtEl.classList.add("welcome-art"); 
+    // welcomeArtEl.src = "./images/crate-digging.jpg" 
 
     const allAlbumsH1=document.createElement("h1");
     allAlbumsH1.innerText = "All Albums Page";
     
     
     mainDiv.appendChild(welcomeSectionEL);
+    // welcomeSectionEL.appendChild(welcomeArtEl);
     welcomeSectionEL.appendChild(welcomeH1);
-    welcomeSectionEL.appendChild(welcomeDetails);    
-    welcomeSectionEL.appendChild(welcomeArtEl);
+    welcomeSectionEL.appendChild(welcomeDetails);
     welcomeSectionEL.appendChild(allAlbumsH1);
 
 

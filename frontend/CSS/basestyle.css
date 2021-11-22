@@ -135,28 +135,54 @@ button {
 /*------------------------------------- Home Page/Albums------------------------------------- */
 
     /*Page Welcome */
-.welcome {
+/* .welcome {
+    width: 100vw;
+    background: linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.6)), url(/images/crate-digging.jpg); 
+    background-image: url(/images/crate-digging.jpg);
+    background-size: 100vw;
+    background-height: 100vh;
     background-color: coral;
     width: 100%;
+} */
+
+.welcome{
+    padding: 20em;
+    outline: 5px solid black;
+    background-size: cover;
+    background-position: center;
+    background-image:linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.6)), url(/images/crate-digging.jpg);
+    background-repeat: no-repeat;
+    background-color: coral;
 }
+/* .welcome-art{   
+    width: 100vw;
+    border-color: rgba(0,0,0,1);
+    background: linear-gradient(rgba(0,0,0,1), rgba(163, 80, 80, 0.6)); 
+} */
 
     /* Album Collection */
 .album-area{
-    display: flex;
-    flex-direction: row;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(325px, 425px));
+    gap: 1.25rem;
+    
+    
     
 }  
 
 
-/* .album-card{
-    display: flex;
-    flex-flow: column;
-    border: 1px solid black;
-    border-radius: 1rem;
+.album-card{    
+    padding-left: 2rem;
+    padding-top: 1.5rem;
+  
 
-}   */
+}  
 .image-art{
-    width: 300px; 
+    /* width: 300px;  */
+    min-width: 300px;
+    max-width: 400px;
     
 }
 

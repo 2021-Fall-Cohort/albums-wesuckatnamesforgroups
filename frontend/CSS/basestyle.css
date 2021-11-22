@@ -111,6 +111,12 @@ button {
     background-color: darkgreen;
     
 }
+
+.comments h1{
+    font-size: xx-large;
+    padding-left: 2.5rem;
+    padding-top: 3rem;
+}
 .current-comment{
     display: flex;
     flex-direction: column;
@@ -121,7 +127,12 @@ button {
 .add-song {
     background-color: burlywood;
 }
-
+.add-album h1,
+.add-song h1{
+    font-size: xx-large;
+    padding-left: 2.5rem;
+    padding-top: 3rem;
+}
 .album-form,
 .song-form {
     margin: 5rem 2rem;
@@ -189,7 +200,7 @@ button {
     max-width: 400px;
     
 }
-
+/* ----Add Album */
 
 
 /* ---------------------------------------Album Page------------------------------------------*/

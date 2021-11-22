@@ -22,6 +22,7 @@
 
 body {
     font-family: "Poppins", sans-serif;
+    
 }
 
 h1,
@@ -51,20 +52,29 @@ p {
 
 }
 
-img {
+/* img {
     width: 100%;
-    /* Height auto adjust to size of screen */
+    Height auto adjust to size of screen
     height: auto;
-}
+} */
 
-.container {
-    display: flex;
+.mainPage{
+    background-color: red;
+
+}
+.interior-container {
+    display:flex;  
     flex-direction: column;
     justify-content: space-between;
-    width: 86%;
-    align-items: left;
-    margin: auto;
+    width: 98%;
+    /* align-items: left;
+    margin: auto; */
     background-color: blueviolet;
+    
+}
+
+.section-style{
+
 }
 
 /* Header  */
@@ -72,17 +82,6 @@ header {
     height: 100px;
     background-color: aquamarine;
 }
-
-.button {
-    background-color:deeppink;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 10px;
-  }
 
 /* Footer */
 footer {
@@ -94,8 +93,30 @@ footer {
     text-align: center;
 
 }
+/* -----------------------------------------Button------------------------------------- */
 
-/* Add Album & Form*/
+button {
+    background-color:deeppink;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+}
+
+/*-----------------------------------------Comments-----------------------------------------*/
+.comments {
+    background-color: darkgreen;
+    
+}
+.current-comment{
+    display: flex;
+    flex-direction: column;
+}
+
+/*--------------------------------------- Add Album & Song Form----------------------------------*/
 .add-album,
 .add-song {
     background-color: burlywood;
@@ -108,28 +129,70 @@ footer {
     flex-direction: column;
 }
 
-/* Comments */
-.comments {
-    background-color: darkgreen;
-}
 
 
 
-
-
-/* Home Page/Albums  */
+/*------------------------------------- Home Page/Albums------------------------------------- */
 
 /*Page Welcome */
-.welcome {
+
+
+.welcome{
+    padding: 20em;
+    border: 6.75px solid black;
+    background-size: cover;
+    background-position: center;
+    background-image:linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.6)), url(/images/crate-digging.jpg);
+    background-repeat: no-repeat;
     background-color: coral;
 }
+/* .welcome-art{   
+    width: 100vw;
+    border-color: rgba(0,0,0,1);
+    background: linear-gradient(rgba(0,0,0,1), rgba(163, 80, 80, 0.6)); 
+} */
 
+.text-styling{
+    background-color: rgb(222, 184, 135, 0.45);
+    
+}
+
+.text-styling h1{
+    font-size: xxx-large;
+    padding-bottom: .5em;
+}
+
+.text-styling small{
+    
+    font-size: larger;
+}
 /* Album Collection */
+.addendum h1{
+    font-size: xx-large;
+    padding-left: 2.5rem;
+    padding-top: 3rem;
+}
+.album-area{
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(325px, 425px));
+    gap: 1.25rem;     
+}  
+.album-card{    
+    padding-left: 2rem;
+    padding-top: 1.5rem;  
+}  
+.image-art{
+    /* width: 300px;  */
+    min-width: 300px;
+    max-width: 400px;
+    
+}
 
 
 
-
-/* Album Page */
+/* ---------------------------------------Album Page------------------------------------------*/
 
 /* Album Art */
 
@@ -139,30 +202,12 @@ footer {
 
 
 
-/* Song Page*/
+/*-----------------------------------------Song Page-------------------------------------------*/
 
-/* Art Section */
+    /* Art Section */
 .album-art {
     background-color: darkorange;
 }
 
-/* Main Section */
+    /* Main Section */
 
-
-
-button {
-    background-color: #4CAF50;
-    /* Green */
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-}
-
-.current-comment{
-    display: flex;
-    flex-direction: column;
-}

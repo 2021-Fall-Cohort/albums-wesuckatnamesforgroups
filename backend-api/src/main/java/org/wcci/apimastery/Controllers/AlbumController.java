@@ -34,11 +34,15 @@ public class AlbumController {
         return albumRepo.findAll();
     }
 
-    @PutMapping("/")
-    public Iterable<Album> editAlbum(@RequestBody Album albumToEdit){
-        if (albumToEdit.getId() != null){
-            albumRepo.save(albumToEdit);
-        }return albumRepo.findAll();
+    @PutMapping("/{id}/editname")
+    public Album editAlbum(@PathVariable Long id, @RequestBody String albumToEdit){
+        Album currentAlbum = albumRepo.findById(id).get();
+        currentAlbum.changeTitle(albumToEdit);
+        albumRepo.save(currentAlbum);
+        return albumRepo.findById(id).get();
+//        if (albumToEdit.getId() != null){
+//            albumRepo.save(albumToEdit);
+//        }return albumRepo.findAll();
     }
 
 //    @GetMapping("/Songs/{id}")
@@ -75,11 +79,11 @@ public class AlbumController {
     }
 
     @PatchMapping("/{id}/addcomment")
-    public Iterable<Album> addCommentToAlbum(@RequestBody String newComment, @PathVariable Long id){
+    public Album addCommentToAlbum(@RequestBody String newComment, @PathVariable Long id){
         Album currentAlbum = albumRepo.findById(id).get();
         currentAlbum.addComments(newComment);
         albumRepo.save(currentAlbum);
-        return albumRepo.findAll();
+        return albumRepo.findById(id).get();
     }
 
 

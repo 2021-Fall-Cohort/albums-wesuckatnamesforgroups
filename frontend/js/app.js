@@ -43,7 +43,7 @@ function buildPage() {
     .then((albums) => {
 
       displayAlbumsView(mainPage, albums);
-      mainPage.style.backgroundColor = "red";
+      // mainPage.style.backgroundColor = "red";
     });
 
 }

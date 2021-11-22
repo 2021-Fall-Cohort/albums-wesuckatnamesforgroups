@@ -74,6 +74,10 @@ Content-Type: application/json
 
 Dave was here
   
-
+###
+PUT http://localhost:8080/Albums/1/editname
+# Content-Type: application/json
+   
+ Test 2
 
  

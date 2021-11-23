@@ -55,12 +55,12 @@ function displayAlbumsView(mainPage, albums) {
 
         const albumNameH2= document.createElement("h2");
         albumNameH2.classList.add("album-name");
-        albumNameH2.innerText = album.title;
+        albumNameH2.innerText = "Album Title: "+ album.title;
      
 
         const artistNameH2=document.createElement("h2");
         artistNameH2.classList.add("artist-name");
-        artistNameH2.innerText = album.artist;
+        artistNameH2.innerText = "Artist: " + album.artist;
 
         const albumRatingH3=document.createElement("h3");
         albumRatingH3.classList.add("album-rating");
@@ -134,7 +134,7 @@ function displayAlbumsView(mainPage, albums) {
     recordLabelEl.placeholder = "Record Label";
 
     const artistImageEl = document.createElement("input");
-    artistImageEl.classList.add("artist-image");
+    artistImageEl.classList.add("artist-image-URL");
     artistImageEl.placeholder = "Artist Image Url"    
 
     const albumCommentEl = document.createElement("input");

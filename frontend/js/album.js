@@ -9,21 +9,26 @@ function displayAlbumView(mainPage, albums, album) {
 
     // Art Area
     const artistArtSection = document.createElement("section");
+    artistArtSection.classList.add("artist-image-section")
 
     const albumArtistName = document.createElement("h2");
     albumArtistName.classList.add("artist-name");
     albumArtistName.innerText = album.artist;
 
     const artistImage = document.createElement("img");
-    artistImage.classList.add("art-image-art");
+    artistImage.classList.add("artist-image");
+    artistImage.src = album.artistImage;
+    
+    
 
     bodyContainerEl.appendChild(artistArtSection);
-    artistArtSection.appendChild(albumArtistName);
     artistArtSection.appendChild(artistImage);
+    artistArtSection.appendChild(artistImage);
+    artistArtSection.appendChild(albumArtistName);
 
     // Main Album Area 
     const mainEl = document.createElement("section");
-    mainEl.classList.add("RENAME");
+    mainEl.classList.add("album-main-info");
 
     const basicDiv = document.createElement("div");
     basicDiv.classList.add("main-elements");
@@ -32,9 +37,10 @@ function displayAlbumView(mainPage, albums, album) {
     albumTitleEl.classList.add("album-name");
     albumTitleEl.innerText = album.title;
 
-    const artist = document.createElement("img");
-    artist.classList.add("artist-image-art");
-    artist.src = album.artistImage;
+    const imageArt2 = document.createElement("img");
+    imageArt2.classList.add("image-art");
+    imageArt2.src = album.image;
+    
 
     const editAlbumEl = document.createElement("input");
     editAlbumEl.placeholder = "Edit Album Name";
@@ -85,9 +91,9 @@ function displayAlbumView(mainPage, albums, album) {
         bodyContainerEl.appendChild(mainEl);
         mainEl.appendChild(basicDiv);
         basicDiv.appendChild(albumTitleEl);
-        basicDiv.appendChild(editAlbumEl);
-        basicDiv.appendChild(editAlbumButton);
-        basicDiv.appendChild(artist);
+        basicDiv.appendChild(editAlbumEl);        
+        basicDiv.appendChild(editAlbumButton); 
+        basicDiv.appendChild(imageArt2);       
         basicDiv.appendChild(backToAlbums);
         mainEl.appendChild(songListDiv);
         songListDiv.appendChild(songListH1);

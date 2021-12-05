@@ -38,7 +38,7 @@ function displayAlbumView(mainPage, albums, album) {
     albumTitleEl.innerText = album.title;
 
     const imageArt2 = document.createElement("img");
-    imageArt2.classList.add("image-art");
+    imageArt2.classList.add("interior-album-art");
     imageArt2.src = album.image;
     
 
@@ -46,6 +46,7 @@ function displayAlbumView(mainPage, albums, album) {
     editAlbumEl.placeholder = "Edit Album Name";
 
     const editAlbumButton = document.createElement("button");
+    editAlbumButton.classList.add("edit-album-name")
     editAlbumButton.innerText = "Submit Edit";
     editAlbumButton.addEventListener("click", () => {
 
@@ -103,7 +104,7 @@ function displayAlbumView(mainPage, albums, album) {
             songTitle.classList.add("songListTitle");
 
             const songDeleteButton = document.createElement("button");
-            songDeleteButton.classList.add("deleteButton");
+            songDeleteButton.classList.add("delete-song-button");
             songDeleteButton.innerText = "Delete Song";
             songDeleteButton.addEventListener("click", () => {
 

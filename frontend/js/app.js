@@ -25,7 +25,7 @@ function buildHeader() {
 
   const logoText = document.createElement("h1");
   logoText.classList.add("logo");
-  logoText.innerText = "Logo Text";
+  logoText.innerText = "Electro-Psychedelic Funk House";
 
   headerEl.appendChild(logoText);
   genericContainer.appendChild(headerEl);
